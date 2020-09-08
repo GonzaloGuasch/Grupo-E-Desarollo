@@ -9,4 +9,8 @@ public class ProyectoMock {
             return cantidadDeDinero;
         }
     }
+
+    public String getNombre() {
+        return "Nombre generico";
+    }
 }

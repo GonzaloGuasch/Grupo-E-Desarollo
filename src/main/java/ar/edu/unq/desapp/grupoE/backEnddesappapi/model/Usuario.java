@@ -2,12 +2,15 @@ package ar.edu.unq.desapp.grupoE.backEnddesappapi.model;
 
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.ProyectoMock;
 
+import java.time.LocalDate;
+
 public class Usuario {
     private String nombreUsuario;
     private String email;
     private String contraseña;
     private String apodo;
     private Integer cantidadDePuntos;
+    private RegistroDeDonaciones registrodeDonaciones;
 
 
     public Usuario(String nombreUsuario, String email, String contraseña, String apodo){
@@ -15,7 +18,8 @@ public class Usuario {
         this.email = email;
         this.contraseña = contraseña;
         this.apodo = apodo;
-        cantidadDePuntos = 0;
+        this.cantidadDePuntos = 0;
+        this.registrodeDonaciones = new RegistroDeDonaciones();
     }
 
     public String getNombreUsuario() { return nombreUsuario; }
@@ -23,12 +27,16 @@ public class Usuario {
     public String getContraseña() { return contraseña; }
     public String getApodo() { return apodo; }
     public Integer getCantidadDePuntos() { return cantidadDePuntos; }
+    public RegistroDeDonaciones getRegistrodeDonaciones() { return registrodeDonaciones; }
+
+    public void donarAPor(ProyectoMock proyectoParaDonar, int cantidadDeDineroADonar) {
+        Integer puntosPorDonacion = proyectoParaDonar.recibirDonancion(cantidadDeDineroADonar);
+        Integer puntosPorBono = this.getRegistrodeDonaciones().registrarNuevaDonacion(proyectoParaDonar.getNombre(), cantidadDeDineroADonar);
+        this.sumarPuntos(puntosPorDonacion + puntosPorBono);
+
+    }
 
     private void sumarPuntos(Integer cantidadDePuntosParaSumar) {
         this.cantidadDePuntos = this.getCantidadDePuntos() + cantidadDePuntosParaSumar;
-    }
-    public void donarAPor(ProyectoMock proyectoParaDonar, int cantidadDeDineroADonar) {
-        Integer puntosPorDonacion = proyectoParaDonar.recibirDonancion(cantidadDeDineroADonar);
-        this.sumarPuntos(puntosPorDonacion);
     }
 }

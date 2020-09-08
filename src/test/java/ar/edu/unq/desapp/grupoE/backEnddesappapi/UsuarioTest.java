@@ -24,10 +24,18 @@ class UsuarioTest {
 	}
 
 	@Test
-	void test002_Un_Usuario_Recibe_la_misma_cantidad_de_puntos_si_dona_mas_de_mil_pesos(){
+	void test002_Un_usuario_recibe_la_misma_cantidad_de_puntos_si_dona_mas_de_mil_pesos() {
 		usuarioDonador.donarAPor(proyectoDeMenosDeDosMilHabitantes, 1001);
 
 		assertEquals(usuarioDonador.getCantidadDePuntos(), 1001);
+	}
+
+	@Test
+	void test003_Si_un_usuario_dona_dos_veces_el_mismo_mes_recibira_un_bonus_de_500_puntos() {
+		usuarioDonador.donarAPor(proyectoDeMenosDeDosMilHabitantes, 1);
+		usuarioDonador.donarAPor(proyectoDeMenosDeDosMilHabitantes, 1);
+
+		assertEquals(500, usuarioDonador.getCantidadDePuntos());
 	}
 
 }
