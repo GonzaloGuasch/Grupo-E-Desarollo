@@ -20,10 +20,6 @@ public class Usuario {
         this.registrodeDonaciones = new RegistroDeDonaciones();
     }
 
-    public String getNombreUsuario() { return nombreUsuario; }
-    public String getEmail() { return email; }
-    public String getContraseña() { return contraseña; }
-    public String getApodo() { return apodo; }
     public Integer getCantidadDePuntos() { return cantidadDePuntos; }
     public RegistroDeDonaciones getRegistrodeDonaciones() { return registrodeDonaciones; }
 

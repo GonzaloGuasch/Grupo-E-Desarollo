@@ -13,7 +13,7 @@ class UsuarioTest {
 
 	@BeforeEach
 	public void setUp(){
-		proyectoDeMenosDeDosMilHabitantes = new ProyectoMock(null, null);
+		proyectoDeMenosDeDosMilHabitantes = new ProyectoMock(null, null, null, null);
 		usuarioDonador = new Usuario("Prueba", "prueba@gmail.com", "1234", "apodo");
 	}
 	@Test

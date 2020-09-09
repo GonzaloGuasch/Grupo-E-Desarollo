@@ -20,7 +20,7 @@ public class UsuarioAdminTest {
     public void setUp() {
         LocalDate fechaDeFinProyecto = LocalDate.of(2021, 1, 1);
         LocalDate fechaDeInicioProyecto = LocalDate.of(2020, 12, 10);
-        proyectoSinFinalizarMock = new ProyectoMock(fechaDeInicioProyecto, fechaDeFinProyecto);
+        proyectoSinFinalizarMock = new ProyectoMock(fechaDeInicioProyecto, fechaDeFinProyecto, 0, 100);
 
         usuarioAdmin = new UsuarioAdmin("usuarioAdmin", "email@gmail.com", "1234", "admin");
     }
@@ -30,5 +30,13 @@ public class UsuarioAdminTest {
         assertThrows(ProyectoNoFinalizableException.class, () -> {
             usuarioAdmin.finalizarProyecto(proyectoSinFinalizarMock, LocalDate.now());
         });
+    }
+
+    @Test
+    void test002_un_admin_puede_cerrar_un_proyecto_si_este_llego_a_lo_recaudad_pero_no_a_la_fecha_de_fin() {
+        ProyectoMock proyectoConRecaudacion = new ProyectoMock(LocalDate.of(2008, 1, 1), LocalDate.of(2019, 1, 1), 110, 100);
+        usuarioAdmin.finalizarProyecto(proyectoConRecaudacion, LocalDate.now());
+
+        assertEquals(usuarioAdmin.getCantidadDeProyectosCerrados(), 1);
     }
 }

@@ -13,18 +13,6 @@ public class EntradaDeRegistroDeDonacion {
         this.montoDonado = montoDonado;
     }
 
-    public String getNombreProyecto() {
-        return nombreProyecto;
-    }
-
-    public LocalDate getFechaDeDonacion() {
-        return fechaDeDonacion;
-    }
-
-    public Integer getMontoDonado() {
-        return montoDonado;
-    }
-
     public Boolean esDeMes(Month mesDeLaDonacion) {
         return this.fechaDeDonacion.getMonth() == mesDeLaDonacion;
     }

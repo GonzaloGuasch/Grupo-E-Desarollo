@@ -10,11 +10,11 @@ public class ProyectoMock {
     private Integer montoRecadudao;
     private Integer montoTotal;
 
-    public ProyectoMock(LocalDate fechaInicio, LocalDate fechaFin) {
+    public ProyectoMock(LocalDate fechaInicio, LocalDate fechaFin, Integer recaudado, Integer montoTotal) {
         this.fechaFin = fechaFin;
         this.fechaInicio = fechaInicio;
-        this.montoRecadudao = 0;
-        this.montoTotal = 100;
+        this.montoRecadudao = recaudado;
+        this.montoTotal = montoTotal;
     }
 
     public Integer recibirDonancion(Integer cantidadDeDinero){
@@ -36,6 +36,6 @@ public class ProyectoMock {
     }
 
     private boolean noEsProyectoFinalizable(LocalDate fechaDeFinalizacion) {
-        return fechaDeFinalizacion.isBefore(this.fechaFin) && this.montoRecadudao < this.montoTotal;
+        return fechaDeFinalizacion.isBefore(this.fechaFin) || this.montoRecadudao < this.montoTotal;
     }
 }
