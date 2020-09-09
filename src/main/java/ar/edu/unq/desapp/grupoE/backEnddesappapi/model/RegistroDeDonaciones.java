@@ -31,4 +31,7 @@ public class RegistroDeDonaciones {
     }
 
 
+    public Integer cantidadDeRegistros() {
+        return this.registroDeDonaciones.size();
+    }
 }

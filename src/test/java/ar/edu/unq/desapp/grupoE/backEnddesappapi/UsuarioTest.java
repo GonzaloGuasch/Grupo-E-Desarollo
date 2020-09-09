@@ -13,7 +13,7 @@ class UsuarioTest {
 
 	@BeforeEach
 	public void setUp(){
-		proyectoDeMenosDeDosMilHabitantes = new ProyectoMock();
+		proyectoDeMenosDeDosMilHabitantes = new ProyectoMock(null, null);
 		usuarioDonador = new Usuario("Prueba", "prueba@gmail.com", "1234", "apodo");
 	}
 	@Test
@@ -36,6 +36,13 @@ class UsuarioTest {
 		usuarioDonador.donarAPor(proyectoDeMenosDeDosMilHabitantes, 1);
 
 		assertEquals(500, usuarioDonador.getCantidadDePuntos());
+	}
+
+	@Test
+	void test004_un_usuario_tiene_registrado_todas_sus_donaciones() {
+		usuarioDonador.donarAPor(proyectoDeMenosDeDosMilHabitantes, 1);
+
+		assertEquals(1, usuarioDonador.cantidadDeDonacionesHistoricas());
 	}
 
 }
