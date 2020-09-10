@@ -5,16 +5,16 @@ import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.ProyectoMock;
 public class Usuario {
     private String nombreUsuario;
     private String email;
-    private String contraseña;
+    private String contrasenia;
     private String apodo;
     private Integer cantidadDePuntos;
     private RegistroDeDonaciones registrodeDonaciones;
 
 
-    public Usuario(String nombreUsuario, String email, String contraseña, String apodo){
+    public Usuario(String nombreUsuario, String email, String contrasenia, String apodo){
         this.nombreUsuario = nombreUsuario;
         this.email = email;
-        this.contraseña = contraseña;
+        this.contrasenia = contrasenia;
         this.apodo = apodo;
         this.cantidadDePuntos = 0;
         this.registrodeDonaciones = new RegistroDeDonaciones();
