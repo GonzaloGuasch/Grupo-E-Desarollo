@@ -40,6 +40,21 @@ public class Aplicacion  {
         }
     }
 
+    public List<Proyecto> topDiezDeDonaciones(){
+        List<Proyecto> topDeProyectos = new ArrayList<>();
+        Proyecto proyectoAComparar = proyectos.get(0);
+        Integer contador = 10;
+        for (Proyecto proyecto : proyectos){
+            if (proyecto.getMontoRecaudado() > proyectoAComparar.getMontoRecaudado() && contador > 0){
+                    topDeProyectos.add(proyecto);
+                    contador -= 1;
+            }
+            if (contador > 0){
+                topDeProyectos.add(proyectoAComparar);
+                contador -= 1;
+            }
 
-
+        }
+        return topDeProyectos;
+    }
 }
