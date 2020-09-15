@@ -1,8 +1,1 @@
 language: java
-
-before_install:
- – chmod +x gradlew
- -gradle wrapper --gradle-version 4.2
-
-jdk:
-  –openjdk8
