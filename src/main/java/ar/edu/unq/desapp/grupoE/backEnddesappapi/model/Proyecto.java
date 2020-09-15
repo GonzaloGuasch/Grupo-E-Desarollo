@@ -9,8 +9,9 @@ public class Proyecto {
     private Integer porcentajeMin;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
-    private Integer factor = 1000;
+    private Integer factor;
     private LocalidadMock localidad;
+    private Integer montoRecaudado;
 
     public Proyecto(String nombreProyecto, Integer porcentajeMin, LocalDate fechaInicio, LocalDate fechaFin, Integer factor, LocalidadMock localidad) {
         this.nombreProyecto = nombreProyecto;
@@ -19,6 +20,7 @@ public class Proyecto {
         this.fechaFin = fechaFin;
         this.factor = factor;
         this.localidad = localidad;
+        this.montoRecaudado = 0;
     }
 
 
@@ -37,6 +39,23 @@ public class Proyecto {
     public LocalidadMock getLocalidad()
     {
         return localidad;
+    }
+
+    public void setMontoRecaudado(Integer montoRecaudado) {
+        this.montoRecaudado = montoRecaudado;
+    }
+
+    public Integer getMontoRecaudado(){
+        return montoRecaudado;
+    }
+
+    public Integer recibirDonancion(Integer cantidadDeDinero){
+        this.setMontoRecaudado(this.getMontoRecaudado() + cantidadDeDinero);
+        if(cantidadDeDinero < 1000){
+            return 0;
+        }else{
+            return cantidadDeDinero;
+        }
     }
 
 
