@@ -23,8 +23,6 @@ public class Proyecto {
         this.montoRecaudado = 0;
     }
 
-
-
     public String getNombreProyecto() {
 
         return nombreProyecto;
@@ -59,5 +57,23 @@ public class Proyecto {
     }
 
 
+    public Integer getCantidadDePoblacionParaProyecto() {
+        return this.getLocalidad().getCantidadDePoblacion();
+    }
 
+    public Integer calcularDineroEnBaseAFactor() {
+        return this.getCantidadDePoblacionParaProyecto() * (this.getFactor());
+    }
+
+    public Integer calcularDineroDefault() {
+        return this.getCantidadDePoblacionParaProyecto() * 1000;
+    }
+
+    public boolean tieneFactorCustom() {
+        return this.getFactor() != 0;
+    }
 }
+
+
+
+

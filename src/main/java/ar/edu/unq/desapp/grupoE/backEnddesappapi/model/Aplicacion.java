@@ -32,11 +32,11 @@ public class Aplicacion  {
     }
 
     public Integer calcularDineroNecesarioParaProveerInternet(Proyecto proyecto){
-        if(proyecto.getFactor() != 0){
-            return (proyecto.getLocalidad().getCantidadDePoblacion()) * (proyecto.getFactor());
+        if(proyecto.tieneFactorCustom()){
+            return (proyecto.calcularDineroEnBaseAFactor());
         }
             else{
-                return (proyecto.getLocalidad().getCantidadDePoblacion() * 1000);
+                return (proyecto.calcularDineroDefault());
         }
     }
 

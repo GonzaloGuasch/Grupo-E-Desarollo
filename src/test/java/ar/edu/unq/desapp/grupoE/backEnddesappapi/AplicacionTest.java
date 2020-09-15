@@ -4,9 +4,10 @@ import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalidadMock;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.UsuarioMock;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Aplicacion;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Proyecto;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInstance;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class AplicacionTest {
 
     LocalidadMock localidadQuilmes,localidadBernal,localidadBegui,localidadDonBosco,localidadAvellaneda,localidadVarela,localidadSolano,localidadHudson,localidadBosques,localidadElPato,localidadEzpeleta,localidadGutierrez;
@@ -26,7 +28,7 @@ public class AplicacionTest {
     List<UsuarioMock> usuarios = new ArrayList<>();
 
 
-    @Before
+    @BeforeAll
     public void setUp() {
         fechaInicio = LocalDate.of(2019, 10, 01);
         fechaFin = LocalDate.of(2020, 10, 01);
@@ -84,8 +86,8 @@ public class AplicacionTest {
     @Test
     public void testCreoUnaAplicacionYAgregoUnUsuarioYUnProyecto(){
         Aplicacion aplicacionNueva = new Aplicacion();
-        aplicacionNueva.getProyectos().add(proyectoQ);
-        aplicacionNueva.getUsuarios().add(usuario);
+        aplicacionNueva.agregarProyecto(proyectoQ);
+        aplicacionNueva.agregarUsuarios(usuario);
         assertEquals(aplicacionNueva.getUsuarios().size(),1);
         assertEquals(aplicacionNueva.getProyectos().size(),1);
 
