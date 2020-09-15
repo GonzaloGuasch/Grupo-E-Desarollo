@@ -12,4 +12,8 @@ public class Localidad {
         this.cantidadDePoblacion = cantidadDePoblacion;
         this.estaConectada = estaConectada;
     }
+
+    public String getnombre() {
+        return this.nombre;
+    }
 }
