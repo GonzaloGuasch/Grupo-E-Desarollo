@@ -9,7 +9,7 @@ public class Proyecto {
     private Integer porcentajeMin;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
-    private Integer factor;
+    private Integer factor = 1000;
     private LocalidadMock localidad;
 
     public Proyecto(String nombreProyecto, Integer porcentajeMin, LocalDate fechaInicio, LocalDate fechaFin, Integer factor, LocalidadMock localidad) {
@@ -20,6 +20,8 @@ public class Proyecto {
         this.factor = factor;
         this.localidad = localidad;
     }
+
+
 
     public String getNombreProyecto() {
 
