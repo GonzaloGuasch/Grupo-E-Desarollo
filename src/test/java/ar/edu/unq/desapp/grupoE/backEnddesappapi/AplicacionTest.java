@@ -16,10 +16,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AplicacionTest {
 
-    LocalidadMock localidad;
+    LocalidadMock localidadQuilmes,localidadBernal,localidadBegui,localidadDonBosco,localidadAvellaneda,localidadVarela,localidadSolano,localidadHudson,localidadBosques,localidadElPato,localidadEzpeleta,localidadGutierrez;
     LocalDate fechaInicio;
     LocalDate fechaFin;
-    Proyecto proyecto;
+    Proyecto proyectoQ,proyectoB,proyectoBE,proyectoDB,proyectoAV,proyectoVA,proyectoSO,proyectoHU,proyectoEZ,proyectoGU,proyectoBQ,proyectoEP;
     Aplicacion aplicacion = new Aplicacion();
     List<Proyecto> proyectos = new ArrayList<>();
     UsuarioMock usuario;
@@ -31,25 +31,49 @@ public class AplicacionTest {
         fechaInicio = LocalDate.of(2019, 10, 01);
         fechaFin = LocalDate.of(2020, 10, 01);
 
-        localidad = new LocalidadMock("Quilmes", "Buenos Aires", 1500, false);
+        localidadQuilmes = new LocalidadMock("Quilmes", "Buenos Aires", 1500, false);
 
-        proyecto = new Proyecto("ProyectoInicial", 10, fechaInicio, fechaFin, 2000, localidad);
+        proyectoQ = new Proyecto("ProyectoQuilmes", 10, fechaInicio, fechaFin, 2000, localidadQuilmes);
+        proyectoB = new Proyecto("ProyectoBernal", 20, fechaInicio, fechaFin, 2000, localidadBernal);
+        proyectoBE = new Proyecto("ProyectoBerazategui", 30, fechaInicio, fechaFin, 2000, localidadBegui);
+        proyectoDB = new Proyecto("ProyectoDonBosco", 40, fechaInicio, fechaFin, 2000, localidadDonBosco);
+        proyectoAV = new Proyecto("ProyectoAvellaneda", 50, fechaInicio, fechaFin, 2000, localidadAvellaneda);
+        proyectoVA = new Proyecto("ProyectoVarela", 60, fechaInicio, fechaFin, 2000, localidadVarela);
+        proyectoSO = new Proyecto("ProyectoSolano", 20, fechaInicio, fechaFin, 2000, localidadSolano);
+        proyectoHU = new Proyecto("ProyectoHudson", 30, fechaInicio, fechaFin, 2000, localidadHudson);
+        proyectoEZ = new Proyecto("ProyectoEzpeleta", 40, fechaInicio, fechaFin, 2000, localidadEzpeleta);
+        proyectoGU = new Proyecto("ProyectoGutierrez", 50, fechaInicio, fechaFin, 2000, localidadGutierrez);
+        proyectoBQ = new Proyecto("ProyectoBosques", 10, fechaInicio, fechaFin, 2000, localidadBosques);
+        proyectoEP = new Proyecto("ProyectoElPato", 20, fechaInicio, fechaFin, 2000, localidadElPato);
+
 
         proyectos = new ArrayList<>();
-        proyectos.add(proyecto);
+        proyectos.add(proyectoQ);
 
         usuario = new UsuarioMock("Willy", "willy@gmail.com", "willy", "willy");
         usuarios = new ArrayList<>();
         usuarios.add(usuario);
 
         aplicacion = new Aplicacion();
-        aplicacion.agregarProyecto(proyecto);
+        aplicacion.agregarProyecto(proyectoQ);
+        aplicacion.agregarProyecto(proyectoAV);
+        aplicacion.agregarProyecto(proyectoB);
+        aplicacion.agregarProyecto(proyectoBE);
+        aplicacion.agregarProyecto(proyectoBQ);
+        aplicacion.agregarProyecto(proyectoDB);
+        aplicacion.agregarProyecto(proyectoEP);
+        aplicacion.agregarProyecto(proyectoEZ);
+        aplicacion.agregarProyecto(proyectoSO);
+        aplicacion.agregarProyecto(proyectoGU);
+        aplicacion.agregarProyecto(proyectoHU);
+        aplicacion.agregarProyecto(proyectoVA);
+
         aplicacion.agregarUsuarios(usuario);
 
     }
 
     @Test
-    public void test01SeCreaUnaAplicacionInicialConUnProyectoYUnUsuarios(){
+    public void testSeCreaUnaAplicacionInicialConUnProyectoYUnUsuarios(){
         Aplicacion aplicacionRecienCreada = new Aplicacion();
 
         assertEquals(aplicacionRecienCreada.getUsuarios().size(),0);
@@ -58,16 +82,23 @@ public class AplicacionTest {
     }
 
     @Test
-    public void test03CreoUnaAplicacionYAgregoUnUsuarioYUnProyecto(){
-        assertEquals(aplicacion.getUsuarios().size(),1);
-        assertEquals(aplicacion.getProyectos().size(),1);
+    public void testCreoUnaAplicacionYAgregoUnUsuarioYUnProyecto(){
+        Aplicacion aplicacionNueva = new Aplicacion();
+        aplicacionNueva.getProyectos().add(proyectoQ);
+        aplicacionNueva.getUsuarios().add(usuario);
+        assertEquals(aplicacionNueva.getUsuarios().size(),1);
+        assertEquals(aplicacionNueva.getProyectos().size(),1);
 
     }
 
 
     @Test
-    public void test02DadoUnaAplicacionYUnProyectoVerificoElDineroNecesarioParaProveerInternet(){
-        assertEquals(aplicacion.calcularDineroNecesarioParaProveerInternet(proyecto),3000000);
+    public void testDadoUnaAplicacionYUnProyectoVerificoElDineroNecesarioParaProveerInternet(){
+        assertEquals(aplicacion.calcularDineroNecesarioParaProveerInternet(proyectoQ),3000000);
     }
 
+    @Test
+    public void testDadoUnaAplicacionConDoceProyectosVerificoElTopDiezDeDonaciones(){
+        assertEquals(aplicacion.topDiezDeDonaciones().size(),10);
+    }
 }
