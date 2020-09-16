@@ -1,8 +1,11 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.ProyectoMock;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Proyecto;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Usuario;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,7 +16,7 @@ class UsuarioTest {
 
 	@BeforeEach
 	public void setUp(){
-		proyectoDeMenosDeDosMilHabitantes = new ProyectoMock(null, null, null, null);
+		proyectoDeMenosDeDosMilHabitantes = new ProyectoMock("prueba", null,null, null, null, null);
 		usuarioDonador = new Usuario("Prueba", "prueba@gmail.com", "1234", "apodo");
 	}
 	@Test

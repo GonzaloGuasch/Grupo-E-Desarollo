@@ -1,21 +1,32 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks;
-
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Proyecto;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.ProyectoNoFinalizableException;
 
 import java.time.LocalDate;
 
-public class ProyectoMock {
+public class ProyectoMock extends Proyecto {
     private LocalDate fechaFin;
     private LocalDate fechaInicio;
     private Integer montoRecadudao;
     private Integer montoTotal;
 
-    public ProyectoMock(LocalDate fechaInicio, LocalDate fechaFin, Integer recaudado, Integer montoTotal) {
-        this.fechaFin = fechaFin;
+    public ProyectoMock(String nombreProyecto, Integer porcentajeMin, LocalDate fechaInicio, LocalDate fechaFin, Integer factor, LocalidadMock localidad) {
+        super(nombreProyecto, porcentajeMin, fechaInicio, fechaFin, factor, localidad);
         this.fechaInicio = fechaInicio;
-        this.montoRecadudao = recaudado;
-        this.montoTotal = montoTotal;
+        this.fechaFin = fechaFin;
+        this.montoRecadudao = 100;
+        this.montoTotal = 90;
     }
+
+    public ProyectoMock(LocalDate fechaInicio, LocalDate fechaFin, Integer recaudacionMin, Integer recaudado) {
+        super(null, recaudacionMin, fechaInicio, fechaFin, null ,null);
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+
+        this.montoRecadudao = 100;
+        this.montoTotal = 90;
+    }
+
 
     public Integer recibirDonancion(Integer cantidadDeDinero){
         if(cantidadDeDinero < 1000){

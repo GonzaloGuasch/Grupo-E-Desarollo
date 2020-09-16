@@ -20,7 +20,7 @@ public class UsuarioAdminTest {
     public void setUp() {
         LocalDate fechaDeFinProyecto = LocalDate.of(2021, 1, 1);
         LocalDate fechaDeInicioProyecto = LocalDate.of(2020, 12, 10);
-        proyectoSinFinalizarMock = new ProyectoMock(fechaDeInicioProyecto, fechaDeFinProyecto, 0, 100);
+        proyectoSinFinalizarMock = new ProyectoMock("prueba", 35,  fechaDeInicioProyecto, fechaDeFinProyecto, 0, null);
 
         usuarioAdmin = new UsuarioAdmin("usuarioAdmin", "email@gmail.com", "1234", "admin");
     }

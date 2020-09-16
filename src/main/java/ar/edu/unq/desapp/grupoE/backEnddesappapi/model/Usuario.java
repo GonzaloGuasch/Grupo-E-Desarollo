@@ -23,9 +23,9 @@ public class Usuario {
     public Integer getCantidadDePuntos() { return cantidadDePuntos; }
     public RegistroDeDonaciones getRegistrodeDonaciones() { return registrodeDonaciones; }
 
-    public void donarAPor(ProyectoMock proyectoParaDonar, int cantidadDeDineroADonar) {
+    public void donarAPor(Proyecto proyectoParaDonar, int cantidadDeDineroADonar) {
         Integer  puntosPorDonacion = proyectoParaDonar.recibirDonancion(cantidadDeDineroADonar);
-        Integer puntosPorBono = this.getRegistrodeDonaciones().registrarNuevaDonacion(proyectoParaDonar.getNombre(), cantidadDeDineroADonar);
+        Integer puntosPorBono = this.getRegistrodeDonaciones().registrarNuevaDonacion(proyectoParaDonar.getNombreProyecto(), cantidadDeDineroADonar);
         this.sumarPuntos(puntosPorDonacion + puntosPorBono);
 
     }

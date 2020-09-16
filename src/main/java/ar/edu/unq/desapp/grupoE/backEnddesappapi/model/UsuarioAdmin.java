@@ -1,7 +1,4 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.model;
-
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.ProyectoMock;
-
 import java.time.LocalDate;
 
 public class UsuarioAdmin extends Usuario{
@@ -11,7 +8,7 @@ public class UsuarioAdmin extends Usuario{
         cantidadDeProyectosCerrados = 0;
     }
 
-    public void finalizarProyecto(ProyectoMock proyectoSinFinalizarMock, LocalDate fechaDeFinalizacion) {
+    public void finalizarProyecto(Proyecto proyectoSinFinalizarMock, LocalDate fechaDeFinalizacion) {
         proyectoSinFinalizarMock.finalizarElDiaDe(fechaDeFinalizacion);
         this.cantidadDeProyectosCerrados = this.cantidadDeProyectosCerrados + 1;
     }

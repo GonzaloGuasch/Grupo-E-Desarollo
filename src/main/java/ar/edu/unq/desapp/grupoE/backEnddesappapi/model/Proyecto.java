@@ -72,6 +72,16 @@ public class Proyecto {
     public boolean tieneFactorCustom() {
         return this.getFactor() != 0;
     }
+
+    public void finalizarElDiaDe(LocalDate fechaDeFinalizacion) {
+        if(noEsProyectoFinalizable(fechaDeFinalizacion)){
+            throw new ProyectoNoFinalizableException("El proyecto no llego ni a la recaudacion ni a la fecha de fin");
+        }
+    }
+
+    private boolean noEsProyectoFinalizable(LocalDate fechaDeFinalizacion) {
+        return fechaDeFinalizacion.isBefore(this.fechaFin) || this.getMontoRecaudado() < this.calcularDineroDefault();
+    }
 }
 
 
