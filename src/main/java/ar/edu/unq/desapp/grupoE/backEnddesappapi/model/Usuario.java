@@ -1,6 +1,8 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.model;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.ProyectoMock;
 
+import java.time.LocalDate;
+
 
 public class Usuario {
     private String nombreUsuario;
@@ -24,10 +26,14 @@ public class Usuario {
     public RegistroDeDonaciones getRegistrodeDonaciones() { return registrodeDonaciones; }
 
     public void donarAPor(Proyecto proyectoParaDonar, int cantidadDeDineroADonar) {
-        Integer  puntosPorDonacion = proyectoParaDonar.recibirDonancion(cantidadDeDineroADonar);
-        Integer puntosPorBono = this.getRegistrodeDonaciones().registrarNuevaDonacion(proyectoParaDonar.getNombreProyecto(), cantidadDeDineroADonar);
-        this.sumarPuntos(puntosPorDonacion + puntosPorBono);
+        Integer  puntosPorDonacion = proyectoParaDonar.darPuntosPorDonacion(cantidadDeDineroADonar);
+        Integer puntosPorBono = this.getRegistrodeDonaciones().darBonoSiEsLaSegundaDonacionDelMes(LocalDate.now().getMonth());
 
+        proyectoParaDonar.recibirDonancion(cantidadDeDineroADonar);
+        this.getRegistrodeDonaciones().registrarNuevaDonacion(proyectoParaDonar.getNombreProyecto(), cantidadDeDineroADonar);
+
+
+        this.sumarPuntos(puntosPorDonacion + puntosPorBono);
     }
 
     private void sumarPuntos(Integer cantidadDePuntosParaSumar) {

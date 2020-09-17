@@ -28,12 +28,11 @@ public class ProyectoMock extends Proyecto {
     }
 
 
-    public Integer recibirDonancion(Integer cantidadDeDinero){
-        if(cantidadDeDinero < 1000){
+    public int recibirDonancion(Integer cantidadDeDinero){
+        if(cantidadDeDinero < 1000) {
             return 0;
-        }else{
-            return cantidadDeDinero;
         }
+        return cantidadDeDinero;
     }
 
     public String getNombre() {

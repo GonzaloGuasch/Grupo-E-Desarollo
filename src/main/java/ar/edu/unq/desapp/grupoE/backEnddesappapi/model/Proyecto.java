@@ -47,13 +47,17 @@ public class Proyecto {
         return montoRecaudado;
     }
 
-    public Integer recibirDonancion(Integer cantidadDeDinero){
-        this.setMontoRecaudado(this.getMontoRecaudado() + cantidadDeDinero);
-        if(cantidadDeDinero < 1000){
+    public Integer darPuntosPorDonacion(int cantidadDeDineroADonar) {
+        if(cantidadDeDineroADonar < 1000){
             return 0;
         }else{
-            return cantidadDeDinero;
+            return cantidadDeDineroADonar;
         }
+    }
+
+    public int recibirDonancion(Integer cantidadDeDinero){
+        this.setMontoRecaudado(this.getMontoRecaudado() + cantidadDeDinero);
+        return 0;
     }
 
 
@@ -82,6 +86,8 @@ public class Proyecto {
     private boolean noEsProyectoFinalizable(LocalDate fechaDeFinalizacion) {
         return fechaDeFinalizacion.isBefore(this.fechaFin) || this.getMontoRecaudado() < this.calcularDineroDefault();
     }
+
+
 }
 
 

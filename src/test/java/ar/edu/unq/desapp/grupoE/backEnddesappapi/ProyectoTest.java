@@ -37,8 +37,8 @@ public class ProyectoTest {
 
     @Test
     void test04DadoUnProyectoQueRecibeUnaDonacionDe10000VerificoQueSuCantidadDeDineroSeaLaCorrecta(){
-
-        assertEquals(proyecto.recibirDonancion(10000), 10000);
+        proyecto.recibirDonancion(10000);
+        assertEquals(proyecto.getMontoRecaudado(), 10000);
     }
 
     @Test

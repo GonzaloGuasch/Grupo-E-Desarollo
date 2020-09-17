@@ -12,7 +12,7 @@ public class RegistroDeDonaciones {
         this.registroDeDonaciones = new ArrayList<>();
     }
 
-    private Integer darBonoSiEsLaSegundaDonacionDelMes(Month mesDeLaDonacion) {
+    public Integer darBonoSiEsLaSegundaDonacionDelMes(Month mesDeLaDonacion) {
         Integer montoDelBono = 0;
          for(EntradaDeRegistroDeDonacion entradaDeRegistroDeDonacion: this.registroDeDonaciones){
              if(entradaDeRegistroDeDonacion.esDeMes(mesDeLaDonacion)){
@@ -22,11 +22,9 @@ public class RegistroDeDonaciones {
 
         return montoDelBono;
     }
-    public Integer registrarNuevaDonacion(String nombreDeProyectoADonar, Integer cantidadDeDineroADonar) {
+    public void registrarNuevaDonacion(String nombreDeProyectoADonar, Integer cantidadDeDineroADonar) {
         EntradaDeRegistroDeDonacion nuevaDonacion = new EntradaDeRegistroDeDonacion(nombreDeProyectoADonar, LocalDate.now(), cantidadDeDineroADonar);
-        Integer bono =  this.darBonoSiEsLaSegundaDonacionDelMes(LocalDate.now().getMonth());
         this.registroDeDonaciones.add(nuevaDonacion);
-        return bono;
     }
 
 
