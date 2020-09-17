@@ -1,7 +1,5 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.model;
-
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalidadMock;
-
 import java.time.LocalDate;
 
 public class Proyecto {
@@ -12,6 +10,7 @@ public class Proyecto {
     private Integer factor;
     private LocalidadMock localidad;
     private Integer montoRecaudado;
+    private Integer multiplicadorDeBono;
 
     public Proyecto(String nombreProyecto, Integer porcentajeMin, LocalDate fechaInicio, LocalDate fechaFin, Integer factor, LocalidadMock localidad) {
         this.nombreProyecto = nombreProyecto;
@@ -21,6 +20,12 @@ public class Proyecto {
         this.factor = factor;
         this.localidad = localidad;
         this.montoRecaudado = 0;
+
+        if(localidad != null && localidad.getCantidadDePoblacion() < 2000){
+            this.multiplicadorDeBono = 2;
+        }else{
+            this.multiplicadorDeBono = 1;
+        }
     }
 
     public Proyecto(String nombreProyecto, LocalDate fechaInicio, LocalDate fechaFin, LocalidadMock localidad) {
@@ -50,22 +55,19 @@ public class Proyecto {
     public Integer getCantidadDePoblacionParaProyecto() {
         return this.getLocalidad().getCantidadDePoblacion();
     }
+    private Integer getMultiplicadorDeBono() {return this.multiplicadorDeBono;}
 
     public Integer darPuntosPorDonacion(int cantidadDeDineroADonar) {
         if(cantidadDeDineroADonar < 1000){
             return 0;
         }else{
-            return cantidadDeDineroADonar;
+            return cantidadDeDineroADonar * this.getMultiplicadorDeBono();
         }
     }
 
-    public int recibirDonancion(Integer cantidadDeDinero){
+    public void recibirDonancion(Integer cantidadDeDinero){
         this.setMontoRecaudado(this.getMontoRecaudado() + cantidadDeDinero);
-        return 0;
     }
-
-
-
 
     public Integer calcularDineroEnBaseAFactor() {
         return this.getCantidadDePoblacionParaProyecto() * (this.getFactor());

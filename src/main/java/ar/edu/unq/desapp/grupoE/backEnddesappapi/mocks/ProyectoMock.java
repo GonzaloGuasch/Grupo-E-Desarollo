@@ -26,17 +26,7 @@ public class ProyectoMock extends Proyecto {
         this.montoRecadudao = 100;
         this.montoTotal = 90;
     }
-
-
-    public int recibirDonancion(Integer cantidadDeDinero){
-        if(cantidadDeDinero < 1000) {
-            return 0;
-        }
-        return cantidadDeDinero;
-    }
-
-    public String getNombre() {
-        return "Nombre generico";
+    public void recibirDonancion(Integer cantidadDeDinero){
     }
 
     public void finalizarElDiaDe(LocalDate fechaDeFinalizacion) {

@@ -6,7 +6,6 @@ import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Aplicacion;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Proyecto;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 
 import java.time.LocalDate;
