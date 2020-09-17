@@ -46,4 +46,12 @@ public class ProyectoTest {
         assertEquals(proyecto.calcularDineroEnBaseAFactor(),1000000);
     }
 
+    @Test
+    void test006PorDefectoUnProyectoTieneFactorMilY100PorcientoParaCompletarlo() {
+        Proyecto proyecto_por_defecto = new Proyecto("Proyecto default", fechaInicio, fechaFin, localidad);
+
+        assertEquals(proyecto_por_defecto.getFactor(), 1000);
+        assertEquals(proyecto_por_defecto.getPorcentageMin(), 100);
+    }
+
 }

@@ -23,28 +23,32 @@ public class Proyecto {
         this.montoRecaudado = 0;
     }
 
-    public String getNombreProyecto() {
+    public Proyecto(String nombreProyecto, LocalDate fechaInicio, LocalDate fechaFin, LocalidadMock localidad) {
+        this.nombreProyecto = nombreProyecto;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.localidad = localidad;
 
-        return nombreProyecto;
+        this.montoRecaudado = 0;
+        this.porcentajeMin = 100;
+        this.factor = 1000;
     }
 
-
-    public Integer getFactor() {
-
-        return factor;
-    }
-
+    public String getNombreProyecto() { return nombreProyecto; }
+    public Integer getFactor() { return factor; }
     public LocalidadMock getLocalidad()
     {
         return localidad;
     }
-
     public void setMontoRecaudado(Integer montoRecaudado) {
         this.montoRecaudado = montoRecaudado;
     }
-
+    public Integer getPorcentageMin() { return this.porcentajeMin; }
     public Integer getMontoRecaudado(){
         return montoRecaudado;
+    }
+    public Integer getCantidadDePoblacionParaProyecto() {
+        return this.getLocalidad().getCantidadDePoblacion();
     }
 
     public Integer darPuntosPorDonacion(int cantidadDeDineroADonar) {
@@ -61,9 +65,7 @@ public class Proyecto {
     }
 
 
-    public Integer getCantidadDePoblacionParaProyecto() {
-        return this.getLocalidad().getCantidadDePoblacion();
-    }
+
 
     public Integer calcularDineroEnBaseAFactor() {
         return this.getCantidadDePoblacionParaProyecto() * (this.getFactor());
@@ -86,6 +88,7 @@ public class Proyecto {
     private boolean noEsProyectoFinalizable(LocalDate fechaDeFinalizacion) {
         return fechaDeFinalizacion.isBefore(this.fechaFin) || this.getMontoRecaudado() < this.calcularDineroDefault();
     }
+
 
 
 }
