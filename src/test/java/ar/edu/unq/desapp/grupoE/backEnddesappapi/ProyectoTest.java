@@ -17,7 +17,7 @@ public class ProyectoTest {
     public void setUp(){
         fechaInicio = LocalDate.of(2019,10,01);
         fechaFin = LocalDate.of(2020,10,01);
-        localidad = new LocalidadMock(null,null,null,null);
+        localidad = new LocalidadMock(null,null,500,null);
         proyecto = new Proyecto("ProyectoInicial",10, fechaInicio, fechaFin,2000,localidad);
     }
     @Test
@@ -28,6 +28,22 @@ public class ProyectoTest {
     @Test
     void test02DadoUnProyectoConFactorDosmilVerificoQueSeaElCorrecto(){
         assertEquals(proyecto.getFactor(), 2000);
+    }
+
+    @Test
+    void test03DadoUnProyectoConLocalidadVerificoQueSeaLaCorrecta(){
+        assertEquals(proyecto.getLocalidad(), localidad);
+    }
+
+    @Test
+    void test04DadoUnProyectoQueRecibeUnaDonacionDe10000VerificoQueSuCantidadDeDineroSeaLaCorrecta(){
+
+        assertEquals(proyecto.recibirDonancion(10000), 10000);
+    }
+
+    @Test
+    void test05DadoUnProyectoConFactor2000VerificoQueSuDineroEnBaseAlFactorSeaElCorrecto(){
+        assertEquals(proyecto.calcularDineroEnBaseAFactor(),1000000);
     }
 
 }
