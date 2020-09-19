@@ -1,5 +1,5 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.model;
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.ProyectoMock;
+
 
 import java.time.LocalDate;
 

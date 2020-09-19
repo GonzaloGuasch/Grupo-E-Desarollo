@@ -1,14 +1,11 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.model;
-
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.UsuarioMock;
-
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Aplicacion  {
     private List<Proyecto> proyectos;
-    private List<UsuarioMock> usuarios;
+    private List<Usuario> usuarios;
 
     public Aplicacion() {
         this.proyectos = new ArrayList<>();
@@ -19,7 +16,7 @@ public class Aplicacion  {
         return proyectos;
     }
 
-    public List<UsuarioMock> getUsuarios() {
+    public List<Usuario> getUsuarios() {
         return usuarios;
     }
 
@@ -27,7 +24,7 @@ public class Aplicacion  {
         this.getProyectos().add(proyecto);
     }
 
-    public void agregarUsuarios(UsuarioMock usuario){
+    public void agregarUsuarios(Usuario usuario){
         this.getUsuarios().add(usuario);
     }
 
