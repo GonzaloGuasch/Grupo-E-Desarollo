@@ -19,24 +19,24 @@ public class ProyectoMock extends Proyecto {
 <span class="fc" id="L19">    }</span>
 
     public ProyectoMock(LocalDate fechaInicio, LocalDate fechaFin, Integer recaudacionMin, Integer recaudado) {
-<span class="nc" id="L22">        super(null, recaudacionMin, fechaInicio, fechaFin, null ,null);</span>
-<span class="nc" id="L23">        this.fechaInicio = fechaInicio;</span>
-<span class="nc" id="L24">        this.fechaFin = fechaFin;</span>
+<span class="fc" id="L22">        super(null, recaudacionMin, fechaInicio, fechaFin, null ,null);</span>
+<span class="fc" id="L23">        this.fechaInicio = fechaInicio;</span>
+<span class="fc" id="L24">        this.fechaFin = fechaFin;</span>
 
-<span class="nc" id="L26">        this.montoRecadudao = 100;</span>
-<span class="nc" id="L27">        this.montoTotal = 90;</span>
-<span class="nc" id="L28">    }</span>
+<span class="fc" id="L26">        this.montoRecadudao = 100;</span>
+<span class="fc" id="L27">        this.montoTotal = 90;</span>
+<span class="fc" id="L28">    }</span>
     public void recibirDonancion(Integer cantidadDeDinero){
 <span class="fc" id="L30">    }</span>
 
     public void finalizarElDiaDe(LocalDate fechaDeFinalizacion) {
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        if(noEsProyectoFinalizable(fechaDeFinalizacion)){</span>
-<span class="nc" id="L34">            throw new ProyectoNoFinalizableException(&quot;El proyecto no llego ni a la recaudacion ni a la fecha de fin&quot;);</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        if(noEsProyectoFinalizable(fechaDeFinalizacion)){</span>
+<span class="fc" id="L34">            throw new ProyectoNoFinalizableException(&quot;El proyecto no llego ni a la recaudacion ni a la fecha de fin&quot;);</span>
         }
-<span class="nc" id="L36">    }</span>
+<span class="fc" id="L36">    }</span>
 
     private boolean noEsProyectoFinalizable(LocalDate fechaDeFinalizacion) {
-<span class="nc bnc" id="L39" title="All 4 branches missed.">        return fechaDeFinalizacion.isBefore(this.fechaFin) || this.montoRecadudao &lt; this.montoTotal;</span>
+<span class="pc bpc" id="L39" title="1 of 4 branches missed.">        return fechaDeFinalizacion.isBefore(this.fechaFin) || this.montoRecadudao &lt; this.montoTotal;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

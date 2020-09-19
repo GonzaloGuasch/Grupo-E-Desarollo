@@ -4,17 +4,17 @@ import java.time.LocalDate;
 public class UsuarioAdmin extends Usuario{
     private Integer cantidadDeProyectosCerrados;
     public UsuarioAdmin(String nombreUsuario, String email, String contraseÃ±a, String apodo) {
-<span class="nc" id="L7">        super(nombreUsuario, email, contraseÃ±a, apodo);</span>
-<span class="nc" id="L8">        cantidadDeProyectosCerrados = 0;</span>
-<span class="nc" id="L9">    }</span>
+<span class="fc" id="L7">        super(nombreUsuario, email, contraseÃ±a, apodo);</span>
+<span class="fc" id="L8">        cantidadDeProyectosCerrados = 0;</span>
+<span class="fc" id="L9">    }</span>
 
     public void finalizarProyecto(Proyecto proyectoSinFinalizarMock, LocalDate fechaDeFinalizacion) {
-<span class="nc" id="L12">        proyectoSinFinalizarMock.finalizarElDiaDe(fechaDeFinalizacion);</span>
-<span class="nc" id="L13">        this.cantidadDeProyectosCerrados = this.cantidadDeProyectosCerrados + 1;</span>
-<span class="nc" id="L14">    }</span>
+<span class="fc" id="L12">        proyectoSinFinalizarMock.finalizarElDiaDe(fechaDeFinalizacion);</span>
+<span class="fc" id="L13">        this.cantidadDeProyectosCerrados = this.cantidadDeProyectosCerrados + 1;</span>
+<span class="fc" id="L14">    }</span>
 
     public Integer getCantidadDeProyectosCerrados() {
-<span class="nc" id="L17">        return this.cantidadDeProyectosCerrados;</span>
+<span class="fc" id="L17">        return this.cantidadDeProyectosCerrados;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
