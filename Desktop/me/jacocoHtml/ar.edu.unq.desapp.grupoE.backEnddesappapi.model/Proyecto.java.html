@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Proyecto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">backEnd-desapp-api</a> &gt; <a href="index.source.html" class="el_package">ar.edu.unq.desapp.grupoE.backEnddesappapi.model</a> &gt; <span class="el_source">Proyecto.java</span></div><h1>Proyecto.java</h1><pre class="source lang-java linenums">package ar.edu.unq.desapp.grupoE.backEnddesappapi.model;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalidadMock;
+import java.time.LocalDate;
+
+public class Proyecto {
+    private String nombreProyecto;
+    private Integer porcentajeMin;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
+    private Integer factor;
+    private LocalidadMock localidad;
+    private Integer montoRecaudado;
+    private Integer multiplicadorDeBono;
+
+<span class="fc" id="L15">    public Proyecto(String nombreProyecto, Integer porcentajeMin, LocalDate fechaInicio, LocalDate fechaFin, Integer factor, LocalidadMock localidad) {</span>
+<span class="fc" id="L16">        this.nombreProyecto = nombreProyecto;</span>
+<span class="fc" id="L17">        this.porcentajeMin = porcentajeMin;</span>
+<span class="fc" id="L18">        this.fechaInicio = fechaInicio;</span>
+<span class="fc" id="L19">        this.fechaFin = fechaFin;</span>
+<span class="fc" id="L20">        this.factor = factor;</span>
+<span class="fc" id="L21">        this.localidad = localidad;</span>
+<span class="fc" id="L22">        this.montoRecaudado = 0;</span>
+
+<span class="pc bpc" id="L24" title="1 of 4 branches missed.">        if(localidad != null &amp;&amp; localidad.getCantidadDePoblacion() &lt; 2000){</span>
+<span class="fc" id="L25">            this.multiplicadorDeBono = 2;</span>
+        }else{
+<span class="fc" id="L27">            this.multiplicadorDeBono = 1;</span>
+        }
+<span class="fc" id="L29">    }</span>
+
+<span class="nc" id="L31">    public Proyecto(String nombreProyecto, LocalDate fechaInicio, LocalDate fechaFin, LocalidadMock localidad) {</span>
+<span class="nc" id="L32">        this.nombreProyecto = nombreProyecto;</span>
+<span class="nc" id="L33">        this.fechaInicio = fechaInicio;</span>
+<span class="nc" id="L34">        this.fechaFin = fechaFin;</span>
+<span class="nc" id="L35">        this.localidad = localidad;</span>
+
+<span class="nc" id="L37">        this.montoRecaudado = 0;</span>
+<span class="nc" id="L38">        this.porcentajeMin = 100;</span>
+<span class="nc" id="L39">        this.factor = 1000;</span>
+<span class="nc" id="L40">    }</span>
+
+<span class="fc" id="L42">    public String getNombreProyecto() { return nombreProyecto; }</span>
+<span class="nc" id="L43">    public Integer getFactor() { return factor; }</span>
+    public LocalidadMock getLocalidad()
+    {
+<span class="nc" id="L46">        return localidad;</span>
+    }
+    public void setMontoRecaudado(Integer montoRecaudado) {
+<span class="nc" id="L49">        this.montoRecaudado = montoRecaudado;</span>
+<span class="nc" id="L50">    }</span>
+<span class="nc" id="L51">    public Integer getPorcentageMin() { return this.porcentajeMin; }</span>
+    public Integer getMontoRecaudado(){
+<span class="nc" id="L53">        return montoRecaudado;</span>
+    }
+    public Integer getCantidadDePoblacionParaProyecto() {
+<span class="nc" id="L56">        return this.getLocalidad().getCantidadDePoblacion();</span>
+    }
+<span class="fc" id="L58">    private Integer getMultiplicadorDeBono() {return this.multiplicadorDeBono;}</span>
+
+    public Integer darPuntosPorDonacion(int cantidadDeDineroADonar) {
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        if(cantidadDeDineroADonar &lt; 1000){</span>
+<span class="fc" id="L62">            return 0;</span>
+        }else{
+<span class="fc" id="L64">            return cantidadDeDineroADonar * this.getMultiplicadorDeBono();</span>
+        }
+    }
+
+    public void recibirDonancion(Integer cantidadDeDinero){
+<span class="nc" id="L69">        this.setMontoRecaudado(this.getMontoRecaudado() + cantidadDeDinero);</span>
+<span class="nc" id="L70">    }</span>
+
+    public Integer calcularDineroEnBaseAFactor() {
+<span class="nc" id="L73">        return this.getCantidadDePoblacionParaProyecto() * (this.getFactor());</span>
+    }
+
+    public Integer calcularDineroDefault() {
+<span class="nc" id="L77">        return this.getCantidadDePoblacionParaProyecto() * 1000;</span>
+    }
+
+    public boolean tieneFactorCustom() {
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        return this.getFactor() != 0;</span>
+    }
+
+    public void finalizarElDiaDe(LocalDate fechaDeFinalizacion) {
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        if(noEsProyectoFinalizable(fechaDeFinalizacion)){</span>
+<span class="nc" id="L86">            throw new ProyectoNoFinalizableException(&quot;El proyecto no llego ni a la recaudacion ni a la fecha de fin&quot;);</span>
+        }
+<span class="nc" id="L88">    }</span>
+
+    private boolean noEsProyectoFinalizable(LocalDate fechaDeFinalizacion) {
+<span class="nc bnc" id="L91" title="All 4 branches missed.">        return fechaDeFinalizacion.isBefore(this.fechaFin) || this.getMontoRecaudado() &lt; this.calcularDineroDefault();</span>
+    }
+
+
+}
+
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
