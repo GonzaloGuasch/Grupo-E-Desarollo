@@ -16,4 +16,8 @@ public class Localidad {
     public String getnombre() {
         return this.nombre;
     }
+
+    public Integer getCantidadDePoblacion() {
+        return this.cantidadDePoblacion;
+    }
 }

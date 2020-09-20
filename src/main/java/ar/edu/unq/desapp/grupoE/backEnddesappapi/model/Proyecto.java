@@ -8,11 +8,11 @@ public class Proyecto {
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
     private Integer factor;
-    private LocalidadMock localidad;
+    private Localidad localidad;
     private Integer montoRecaudado;
     private Integer multiplicadorDeBono;
 
-    public Proyecto(String nombreProyecto, Integer porcentajeMin, LocalDate fechaInicio, LocalDate fechaFin, Integer factor, LocalidadMock localidad) {
+    public Proyecto(String nombreProyecto, Integer porcentajeMin, LocalDate fechaInicio, LocalDate fechaFin, Integer factor, Localidad localidad) {
         this.nombreProyecto = nombreProyecto;
         this.porcentajeMin = porcentajeMin;
         this.fechaInicio = fechaInicio;
@@ -28,7 +28,7 @@ public class Proyecto {
         }
     }
 
-    public Proyecto(String nombreProyecto, LocalDate fechaInicio, LocalDate fechaFin, LocalidadMock localidad) {
+    public Proyecto(String nombreProyecto, LocalDate fechaInicio, LocalDate fechaFin, Localidad localidad) {
         this.nombreProyecto = nombreProyecto;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -41,7 +41,7 @@ public class Proyecto {
 
     public String getNombreProyecto() { return nombreProyecto; }
     public Integer getFactor() { return factor; }
-    public LocalidadMock getLocalidad()
+    public Localidad getLocalidad()
     {
         return localidad;
     }

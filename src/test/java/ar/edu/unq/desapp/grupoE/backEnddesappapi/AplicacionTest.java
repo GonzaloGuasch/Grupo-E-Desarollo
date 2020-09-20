@@ -102,4 +102,9 @@ public class AplicacionTest {
     public void testDadoUnaAplicacionConDoceProyectosVerificoElTopDiezDeDonaciones(){
         assertEquals(aplicacion.topDiezDeDonaciones().size(),10);
     }
+
+    @Test
+    public void asd(){
+
+    }
 }
