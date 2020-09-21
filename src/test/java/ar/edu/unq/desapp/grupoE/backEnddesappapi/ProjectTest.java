@@ -9,49 +9,50 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProjectTest {
     Project project;
-    LocalidadMock localidad;
-    LocalDate fechaInicio;
-    LocalDate fechaFin;
+    LocalidadMock locality;
+    LocalDate startDate;
+    LocalDate endDate;
 
     @BeforeEach
     public void setUp(){
-        fechaInicio = LocalDate.of(2019,10,01);
-        fechaFin = LocalDate.of(2020,10,01);
-        localidad = new LocalidadMock(null,null,500,null);
-        project = new Project("ProyectoInicial",10, fechaInicio, fechaFin,2000,localidad);
+        startDate = LocalDate.of(2019,10,01);
+        endDate = LocalDate.of(2020,10,01);
+        locality = new LocalidadMock(null,null,500,null);
+        project = new Project("Initial Project",10, startDate, endDate,2000, locality);
     }
     @Test
-    public void test01SeCreaUnProyectoNuevoYVerificoQueSuNombreSeaElCorrecto(){
-        assertEquals(project.getProjectName(),"ProyectoInicial");
+    public void testANewProjectIsCreatedAndIVerifyThatItsNameIsCorrect(){
+        assertEquals(project.getProjectName(),"Initial Project");
     }
 
     @Test
-    void test02DadoUnProyectoConFactorDosmilVerificoQueSeaElCorrecto(){
+    void testGivenAProjectWithAFactorOfTwoThousandIVerifyThatItIsTheCorrect()
+    {
         assertEquals(project.getFactor(), 2000);
     }
 
     @Test
-    void test03DadoUnProyectoConLocalidadVerificoQueSeaLaCorrecta(){
-        assertEquals(project.getLocality(), localidad);
+    void testGivenAProjectWithALocalityIVerifyThatItIsTheCorrect(){
+        assertEquals(project.getLocality(), locality);
     }
 
     @Test
-    void test04DadoUnProyectoQueRecibeUnaDonacionDe10000VerificoQueSuCantidadDeDineroSeaLaCorrecta(){
+    void testGivenAProjectThatReceivesADonationOf10000IVerifyThatYourAmountOfMoneyIsCorrect(){
         project.receiveDonation(10000);
         assertEquals(project.getAmountCollected(), 10000);
     }
 
     @Test
-    void test05DadoUnProyectoConFactor2000VerificoQueSuDineroEnBaseAlFactorSeaElCorrecto(){
+    void testGivenAProjectWithFactor2000IVerifyThatYourMoneyBasedOnTheFactorIsCorrect(){
         assertEquals(project.calculateMoneyBasedOnfactor(),1000000);
     }
 
     @Test
-    void test006PorDefectoUnProyectoTieneFactorMilY100PorcientoParaCompletarlo() {
-        Project project_por_defecto = new Project("Proyecto default", fechaInicio, fechaFin, localidad);
+    void testByDefaultAProjectHasAThousandAnd100PercentFactorToCompleteIt() {
+        Project project_default = new Project("Project default", startDate, endDate, locality);
 
-        assertEquals(project_por_defecto.getFactor(), 1000);
-        assertEquals(project_por_defecto.getPorcentageMin(), 100);
+        assertEquals(project_default.getFactor(), 1000);
+        assertEquals(project_default.getPorcentageMin(), 100);
     }
 
 }
