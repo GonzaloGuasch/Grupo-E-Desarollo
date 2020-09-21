@@ -25,12 +25,12 @@ public class Usuario {
     public Integer getCantidadDePuntos() { return cantidadDePuntos; }
     public RegistroDeDonaciones getRegistrodeDonaciones() { return registrodeDonaciones; }
 
-    public void donarAPor(Proyecto proyectoParaDonar, int cantidadDeDineroADonar) {
-        Integer  puntosPorDonacion = proyectoParaDonar.darPuntosPorDonacion(cantidadDeDineroADonar);
+    public void donarAPor(Project projectParaDonar, int cantidadDeDineroADonar) {
+        Integer  puntosPorDonacion = projectParaDonar.givePointsForDonation(cantidadDeDineroADonar);
         Integer puntosPorBono = this.getRegistrodeDonaciones().darBonoSiEsLaSegundaDonacionDelMes(LocalDate.now().getMonth());
 
-        proyectoParaDonar.recibirDonancion(cantidadDeDineroADonar);
-        this.getRegistrodeDonaciones().registrarNuevaDonacion(proyectoParaDonar.getNombreProyecto(), cantidadDeDineroADonar);
+        projectParaDonar.receiveDonation(cantidadDeDineroADonar);
+        this.getRegistrodeDonaciones().registrarNuevaDonacion(projectParaDonar.getProjectName(), cantidadDeDineroADonar);
 
 
         this.sumarPuntos(puntosPorDonacion + puntosPorBono);

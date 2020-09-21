@@ -1,6 +1,6 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalidadMock;
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.ProyectoMock;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.ProjectMock;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Usuario;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class UsuarioTest {
-	private ProyectoMock proyectoDeDeDosMilHabitantes;
-	private ProyectoMock proyectoDeMenosDeDosMilHabitantes;
+	private ProjectMock proyectoDeDeDosMilHabitantes;
+	private ProjectMock proyectoDeMenosDeDosMilHabitantes;
 	private Usuario usuarioDonador;
 	private LocalidadMock localidadMock;
 	private LocalidadMock localidadDeMenosDeDosMilHabitantes;
@@ -20,8 +20,8 @@ class UsuarioTest {
 	public void setUp(){
 		localidadMock = new LocalidadMock("lm", "bs", 2002, true);
 		localidadDeMenosDeDosMilHabitantes = new LocalidadMock("lm", "bs", 800, true);
-		proyectoDeMenosDeDosMilHabitantes = new ProyectoMock("Prueba", null, null,null, null, localidadDeMenosDeDosMilHabitantes);
-		proyectoDeDeDosMilHabitantes = new ProyectoMock("prueba", null,null, null, null, localidadMock);
+		proyectoDeMenosDeDosMilHabitantes = new ProjectMock("Prueba", null, null,null, null, localidadDeMenosDeDosMilHabitantes);
+		proyectoDeDeDosMilHabitantes = new ProjectMock("prueba", null,null, null, null, localidadMock);
 		usuarioDonador = new Usuario("Prueba", "prueba@gmail.com", "1234", "apodo");
 	}
 	@Test

@@ -4,54 +4,54 @@ import java.util.List;
 
 
 public class Aplicacion  {
-    private List<Proyecto> proyectos;
+    private List<Project> projects;
     private List<Usuario> usuarios;
 
     public Aplicacion() {
-        this.proyectos = new ArrayList<>();
+        this.projects = new ArrayList<>();
         this.usuarios = new ArrayList<>();
     }
 
-    public List<Proyecto> getProyectos() {
-        return proyectos;
+    public List<Project> getProyectos() {
+        return projects;
     }
 
     public List<Usuario> getUsuarios() {
         return usuarios;
     }
 
-    public void agregarProyecto(Proyecto proyecto){
-        this.getProyectos().add(proyecto);
+    public void agregarProyecto(Project project){
+        this.getProyectos().add(project);
     }
 
     public void agregarUsuarios(Usuario usuario){
         this.getUsuarios().add(usuario);
     }
 
-    public Integer calcularDineroNecesarioParaProveerInternet(Proyecto proyecto){
-        if(proyecto.tieneFactorCustom()){
-            return (proyecto.calcularDineroEnBaseAFactor());
+    public Integer calcularDineroNecesarioParaProveerInternet(Project project){
+        if(project.haveFactorCustom()){
+            return (project.calculateMoneyBasedOnfactor());
         }
             else{
-                return (proyecto.calcularDineroDefault());
+                return (project.calculateMoneyDefault());
         }
     }
 
-    public List<Proyecto> topDiezDeDonaciones(){
-        List<Proyecto> topDeProyectos = new ArrayList<>();
-        Proyecto proyectoAComparar = proyectos.get(0);
+    public List<Project> topDiezDeDonaciones(){
+        List<Project> topDeProjects = new ArrayList<>();
+        Project projectAComparar = projects.get(0);
         Integer contador = 10;
-        for (Proyecto proyecto : proyectos){
-            if (proyecto.getMontoRecaudado() > proyectoAComparar.getMontoRecaudado() && contador > 0){
-                    topDeProyectos.add(proyecto);
+        for (Project project : projects){
+            if (project.getAmountCollected() > projectAComparar.getAmountCollected() && contador > 0){
+                    topDeProjects.add(project);
                     contador -= 1;
             }
             if (contador > 0){
-                topDeProyectos.add(proyectoAComparar);
+                topDeProjects.add(projectAComparar);
                 contador -= 1;
             }
 
         }
-        return topDeProyectos;
+        return topDeProjects;
     }
 }
