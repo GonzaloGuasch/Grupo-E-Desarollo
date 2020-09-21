@@ -1,7 +1,7 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.model;
 import java.time.LocalDate;
 
-public class UserAdmin extends Usuario{
+public class UserAdmin extends User {
     private Integer numberOfProjectsClosed;
 
     public UserAdmin(String nombreUsuario, String email, String contrasenia, String apodo) {

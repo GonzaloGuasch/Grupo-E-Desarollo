@@ -1,11 +1,11 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks;
 
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Usuario;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.User;
 
-public class UsuarioMock extends Usuario {
+public class UserMock extends User {
         private Integer cantidadDePuntos;
 
-        public UsuarioMock(String nombreUsuario, String email, String contrasenia, String apodo){
+        public UserMock(String nombreUsuario, String email, String contrasenia, String apodo){
             super(nombreUsuario, email, contrasenia, apodo);
             this.cantidadDePuntos = 0;
 

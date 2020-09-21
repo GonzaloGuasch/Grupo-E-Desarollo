@@ -1,7 +1,7 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi;
 
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalityMock;
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.UsuarioMock;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.UserMock;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.App;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Project;
 import org.junit.jupiter.api.BeforeAll;
@@ -23,8 +23,8 @@ public class AppTest {
     Project projectQ, projectB, projectBE, projectDB, projectAV, projectVA, projectSO, projectHU, projectEZ, projectGU, projectBQ, projectEP;
     App app = new App();
     List<Project> projects = new ArrayList<>();
-    UsuarioMock usuario;
-    List<UsuarioMock> usuarios = new ArrayList<>();
+    UserMock usuario;
+    List<UserMock> usuarios = new ArrayList<>();
 
 
     @BeforeAll
@@ -51,7 +51,7 @@ public class AppTest {
         projects = new ArrayList<>();
         projects.add(projectQ);
 
-        usuario = new UsuarioMock("Willy", "willy@gmail.com", "willy", "willy");
+        usuario = new UserMock("Willy", "willy@gmail.com", "willy", "willy");
         usuarios = new ArrayList<>();
         usuarios.add(usuario);
 

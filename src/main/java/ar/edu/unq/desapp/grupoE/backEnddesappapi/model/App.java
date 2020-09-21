@@ -5,27 +5,27 @@ import java.util.List;
 
 public class App {
     private List<Project> projects;
-    private List<Usuario> usuarios;
+    private List<User> users;
 
     public App() {
         this.projects = new ArrayList<>();
-        this.usuarios = new ArrayList<>();
+        this.users = new ArrayList<>();
     }
 
     public List<Project> getProjects() {
         return projects;
     }
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
+    public List<User> getUsuarios() {
+        return users;
     }
 
     public void addProject(Project project){
         this.getProjects().add(project);
     }
 
-    public void addUser(Usuario usuario){
-        this.getUsuarios().add(usuario);
+    public void addUser(User user){
+        this.getUsuarios().add(user);
     }
 
     public Integer calculateMoneyNeededToProvideInternet(Project project){
