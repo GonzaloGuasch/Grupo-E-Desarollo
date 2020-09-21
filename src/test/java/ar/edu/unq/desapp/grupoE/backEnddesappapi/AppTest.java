@@ -17,9 +17,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class AppTest {
 
-    LocalidadMock localidadQuilmes,localidadBernal,localidadBegui,localidadDonBosco,localidadAvellaneda,localidadVarela,localidadSolano,localidadHudson,localidadBosques,localidadElPato,localidadEzpeleta,localidadGutierrez;
-    LocalDate fechaInicio;
-    LocalDate fechaFin;
+    LocalidadMock localityQuilmes, localityBernal, localityBegui, localityDonBosco, localityAvellaneda, localityVarela, localitySolano, localityHudson, localityBosques, localityElPato, localityEzpeleta, localityGutierrez;
+    LocalDate startDate;
+    LocalDate endDate;
     Project projectQ, projectB, projectBE, projectDB, projectAV, projectVA, projectSO, projectHU, projectEZ, projectGU, projectBQ, projectEP;
     App app = new App();
     List<Project> projects = new ArrayList<>();
@@ -29,23 +29,23 @@ public class AppTest {
 
     @BeforeAll
     public void setUp() {
-        fechaInicio = LocalDate.of(2019, 10, 01);
-        fechaFin = LocalDate.of(2020, 10, 01);
+        startDate = LocalDate.of(2019, 10, 01);
+        endDate = LocalDate.of(2020, 10, 01);
 
-        localidadQuilmes = new LocalidadMock("Quilmes", "Buenos Aires", 1500, false);
+        localityQuilmes = new LocalidadMock("Quilmes", "Buenos Aires", 1500, false);
 
-        projectQ = new Project("ProyectoQuilmes", 10, fechaInicio, fechaFin, 2000, localidadQuilmes);
-        projectB = new Project("ProyectoBernal", 20, fechaInicio, fechaFin, 2000, localidadBernal);
-        projectBE = new Project("ProyectoBerazategui", 30, fechaInicio, fechaFin, 2000, localidadBegui);
-        projectDB = new Project("ProyectoDonBosco", 40, fechaInicio, fechaFin, 2000, localidadDonBosco);
-        projectAV = new Project("ProyectoAvellaneda", 50, fechaInicio, fechaFin, 2000, localidadAvellaneda);
-        projectVA = new Project("ProyectoVarela", 60, fechaInicio, fechaFin, 2000, localidadVarela);
-        projectSO = new Project("ProyectoSolano", 20, fechaInicio, fechaFin, 2000, localidadSolano);
-        projectHU = new Project("ProyectoHudson", 30, fechaInicio, fechaFin, 2000, localidadHudson);
-        projectEZ = new Project("ProyectoEzpeleta", 40, fechaInicio, fechaFin, 2000, localidadEzpeleta);
-        projectGU = new Project("ProyectoGutierrez", 50, fechaInicio, fechaFin, 2000, localidadGutierrez);
-        projectBQ = new Project("ProyectoBosques", 10, fechaInicio, fechaFin, 2000, localidadBosques);
-        projectEP = new Project("ProyectoElPato", 20, fechaInicio, fechaFin, 2000, localidadElPato);
+        projectQ = new Project("ProyectoQuilmes", 10, startDate, endDate, 2000, localityQuilmes);
+        projectB = new Project("ProyectoBernal", 20, startDate, endDate, 2000, localityBernal);
+        projectBE = new Project("ProyectoBerazategui", 30, startDate, endDate, 2000, localityBegui);
+        projectDB = new Project("ProyectoDonBosco", 40, startDate, endDate, 2000, localityDonBosco);
+        projectAV = new Project("ProyectoAvellaneda", 50, startDate, endDate, 2000, localityAvellaneda);
+        projectVA = new Project("ProyectoVarela", 60, startDate, endDate, 2000, localityVarela);
+        projectSO = new Project("ProyectoSolano", 20, startDate, endDate, 2000, localitySolano);
+        projectHU = new Project("ProyectoHudson", 30, startDate, endDate, 2000, localityHudson);
+        projectEZ = new Project("ProyectoEzpeleta", 40, startDate, endDate, 2000, localityEzpeleta);
+        projectGU = new Project("ProyectoGutierrez", 50, startDate, endDate, 2000, localityGutierrez);
+        projectBQ = new Project("ProyectoBosques", 10, startDate, endDate, 2000, localityBosques);
+        projectEP = new Project("ProyectoElPato", 20, startDate, endDate, 2000, localityElPato);
 
 
         projects = new ArrayList<>();
@@ -74,16 +74,16 @@ public class AppTest {
     }
 
     @Test
-    public void testSeCreaUnaAplicacionInicialConUnProyectoYUnUsuarios(){
-        App appRecienCreada = new App();
+    public void testAnInitialAppIsCreatedWithAProjectAndAUser(){
+        App appInitial = new App();
 
-        assertEquals(appRecienCreada.getUsuarios().size(),0);
-        assertEquals(appRecienCreada.getProjects().size(),0);
+        assertEquals(appInitial.getUsuarios().size(),0);
+        assertEquals(appInitial.getProjects().size(),0);
 
     }
 
     @Test
-    public void testCreoUnaAplicacionYAgregoUnUsuarioYUnProyecto(){
+    public void testIcreateAnAppAndAddAUserAndAProject(){
         App appNueva = new App();
         appNueva.addProject(projectQ);
         appNueva.addUser(usuario);
@@ -94,17 +94,13 @@ public class AppTest {
 
 
     @Test
-    public void testDadoUnaAplicacionYUnProyectoVerificoElDineroNecesarioParaProveerInternet(){
+    public void testGivenAnAppAndAProjectVerifyTheMoneyNeededToProvideInternet(){
         assertEquals(app.calculateMoneyNeededToProvideInternet(projectQ),3000000);
     }
 
     @Test
-    public void testDadoUnaAplicacionConDoceProyectosVerificoElTopDiezDeDonaciones(){
+    public void testGivenAnAppWithTwelveProjectsIVerifyTheTopTenDonations(){
         assertEquals(app.topTenDonations().size(),10);
     }
 
-    @Test
-    public void asd(){
-
-    }
 }
