@@ -2,7 +2,7 @@ package ar.edu.unq.desapp.grupoE.backEnddesappapi;
 
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalidadMock;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.UsuarioMock;
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Aplicacion;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.App;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Project;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -15,13 +15,13 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class AplicacionTest {
+public class AppTest {
 
     LocalidadMock localidadQuilmes,localidadBernal,localidadBegui,localidadDonBosco,localidadAvellaneda,localidadVarela,localidadSolano,localidadHudson,localidadBosques,localidadElPato,localidadEzpeleta,localidadGutierrez;
     LocalDate fechaInicio;
     LocalDate fechaFin;
     Project projectQ, projectB, projectBE, projectDB, projectAV, projectVA, projectSO, projectHU, projectEZ, projectGU, projectBQ, projectEP;
-    Aplicacion aplicacion = new Aplicacion();
+    App app = new App();
     List<Project> projects = new ArrayList<>();
     UsuarioMock usuario;
     List<UsuarioMock> usuarios = new ArrayList<>();
@@ -55,52 +55,52 @@ public class AplicacionTest {
         usuarios = new ArrayList<>();
         usuarios.add(usuario);
 
-        aplicacion = new Aplicacion();
-        aplicacion.agregarProyecto(projectQ);
-        aplicacion.agregarProyecto(projectAV);
-        aplicacion.agregarProyecto(projectB);
-        aplicacion.agregarProyecto(projectBE);
-        aplicacion.agregarProyecto(projectBQ);
-        aplicacion.agregarProyecto(projectDB);
-        aplicacion.agregarProyecto(projectEP);
-        aplicacion.agregarProyecto(projectEZ);
-        aplicacion.agregarProyecto(projectSO);
-        aplicacion.agregarProyecto(projectGU);
-        aplicacion.agregarProyecto(projectHU);
-        aplicacion.agregarProyecto(projectVA);
+        app = new App();
+        app.addProject(projectQ);
+        app.addProject(projectAV);
+        app.addProject(projectB);
+        app.addProject(projectBE);
+        app.addProject(projectBQ);
+        app.addProject(projectDB);
+        app.addProject(projectEP);
+        app.addProject(projectEZ);
+        app.addProject(projectSO);
+        app.addProject(projectGU);
+        app.addProject(projectHU);
+        app.addProject(projectVA);
 
-        aplicacion.agregarUsuarios(usuario);
+        app.addUser(usuario);
 
     }
 
     @Test
     public void testSeCreaUnaAplicacionInicialConUnProyectoYUnUsuarios(){
-        Aplicacion aplicacionRecienCreada = new Aplicacion();
+        App appRecienCreada = new App();
 
-        assertEquals(aplicacionRecienCreada.getUsuarios().size(),0);
-        assertEquals(aplicacionRecienCreada.getProyectos().size(),0);
+        assertEquals(appRecienCreada.getUsuarios().size(),0);
+        assertEquals(appRecienCreada.getProjects().size(),0);
 
     }
 
     @Test
     public void testCreoUnaAplicacionYAgregoUnUsuarioYUnProyecto(){
-        Aplicacion aplicacionNueva = new Aplicacion();
-        aplicacionNueva.agregarProyecto(projectQ);
-        aplicacionNueva.agregarUsuarios(usuario);
-        assertEquals(aplicacionNueva.getUsuarios().size(),1);
-        assertEquals(aplicacionNueva.getProyectos().size(),1);
+        App appNueva = new App();
+        appNueva.addProject(projectQ);
+        appNueva.addUser(usuario);
+        assertEquals(appNueva.getUsuarios().size(),1);
+        assertEquals(appNueva.getProjects().size(),1);
 
     }
 
 
     @Test
     public void testDadoUnaAplicacionYUnProyectoVerificoElDineroNecesarioParaProveerInternet(){
-        assertEquals(aplicacion.calcularDineroNecesarioParaProveerInternet(projectQ),3000000);
+        assertEquals(app.calculateMoneyNeededToProvideInternet(projectQ),3000000);
     }
 
     @Test
     public void testDadoUnaAplicacionConDoceProyectosVerificoElTopDiezDeDonaciones(){
-        assertEquals(aplicacion.topDiezDeDonaciones().size(),10);
+        assertEquals(app.topTenDonations().size(),10);
     }
 
     @Test
