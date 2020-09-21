@@ -25,12 +25,12 @@ public class Usuario {
 <span class="fc" id="L25">    public Integer getCantidadDePuntos() { return cantidadDePuntos; }</span>
 <span class="fc" id="L26">    public RegistroDeDonaciones getRegistrodeDonaciones() { return registrodeDonaciones; }</span>
 
-    public void donarAPor(Proyecto proyectoParaDonar, int cantidadDeDineroADonar) {
-<span class="fc" id="L29">        Integer  puntosPorDonacion = proyectoParaDonar.darPuntosPorDonacion(cantidadDeDineroADonar);</span>
+    public void donarAPor(Project projectParaDonar, int cantidadDeDineroADonar) {
+<span class="fc" id="L29">        Integer  puntosPorDonacion = projectParaDonar.givePointsForDonation(cantidadDeDineroADonar);</span>
 <span class="fc" id="L30">        Integer puntosPorBono = this.getRegistrodeDonaciones().darBonoSiEsLaSegundaDonacionDelMes(LocalDate.now().getMonth());</span>
 
-<span class="fc" id="L32">        proyectoParaDonar.recibirDonancion(cantidadDeDineroADonar);</span>
-<span class="fc" id="L33">        this.getRegistrodeDonaciones().registrarNuevaDonacion(proyectoParaDonar.getNombreProyecto(), cantidadDeDineroADonar);</span>
+<span class="fc" id="L32">        projectParaDonar.receiveDonation(cantidadDeDineroADonar);</span>
+<span class="fc" id="L33">        this.getRegistrodeDonaciones().registrarNuevaDonacion(projectParaDonar.getProjectName(), cantidadDeDineroADonar);</span>
 
 
 <span class="fc" id="L36">        this.sumarPuntos(puntosPorDonacion + puntosPorBono);</span>

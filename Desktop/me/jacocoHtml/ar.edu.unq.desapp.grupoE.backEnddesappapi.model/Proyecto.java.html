@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Proyecto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">backEnd-desapp-api</a> &gt; <a href="index.source.html" class="el_package">ar.edu.unq.desapp.grupoE.backEnddesappapi.model</a> &gt; <span class="el_source">Proyecto.java</span></div><h1>Proyecto.java</h1><pre class="source lang-java linenums">package ar.edu.unq.desapp.grupoE.backEnddesappapi.model;
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalidadMock;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalityMock;
 import java.time.LocalDate;
 
 public class Proyecto {
@@ -8,31 +8,31 @@ public class Proyecto {
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
     private Integer factor;
-    private Localidad localidad;
+    private Localidad locality;
     private Integer montoRecaudado;
     private Integer multiplicadorDeBono;
 
-<span class="fc" id="L15">    public Proyecto(String nombreProyecto, Integer porcentajeMin, LocalDate fechaInicio, LocalDate fechaFin, Integer factor, Localidad localidad) {</span>
+<span class="fc" id="L15">    public Proyecto(String nombreProyecto, Integer porcentajeMin, LocalDate fechaInicio, LocalDate fechaFin, Integer factor, Localidad locality) {</span>
 <span class="fc" id="L16">        this.nombreProyecto = nombreProyecto;</span>
 <span class="fc" id="L17">        this.porcentajeMin = porcentajeMin;</span>
 <span class="fc" id="L18">        this.fechaInicio = fechaInicio;</span>
 <span class="fc" id="L19">        this.fechaFin = fechaFin;</span>
 <span class="fc" id="L20">        this.factor = factor;</span>
-<span class="fc" id="L21">        this.localidad = localidad;</span>
+<span class="fc" id="L21">        this.locality = locality;</span>
 <span class="fc" id="L22">        this.montoRecaudado = 0;</span>
 
-<span class="fc bfc" id="L24" title="All 4 branches covered.">        if(localidad != null &amp;&amp; localidad.getCantidadDePoblacion() &lt; 2000){</span>
+<span class="fc bfc" id="L24" title="All 4 branches covered.">        if(locality != null &amp;&amp; locality.getCantidadDePoblacion() &lt; 2000){</span>
 <span class="fc" id="L25">            this.multiplicadorDeBono = 2;</span>
         }else{
 <span class="fc" id="L27">            this.multiplicadorDeBono = 1;</span>
         }
 <span class="fc" id="L29">    }</span>
 
-<span class="fc" id="L31">    public Proyecto(String nombreProyecto, LocalDate fechaInicio, LocalDate fechaFin, Localidad localidad) {</span>
+<span class="fc" id="L31">    public Proyecto(String nombreProyecto, LocalDate fechaInicio, LocalDate fechaFin, Localidad locality) {</span>
 <span class="fc" id="L32">        this.nombreProyecto = nombreProyecto;</span>
 <span class="fc" id="L33">        this.fechaInicio = fechaInicio;</span>
 <span class="fc" id="L34">        this.fechaFin = fechaFin;</span>
-<span class="fc" id="L35">        this.localidad = localidad;</span>
+<span class="fc" id="L35">        this.locality = locality;</span>
 
 <span class="fc" id="L37">        this.montoRecaudado = 0;</span>
 <span class="fc" id="L38">        this.porcentajeMin = 100;</span>
@@ -43,7 +43,7 @@ public class Proyecto {
 <span class="fc" id="L43">    public Integer getFactor() { return factor; }</span>
     public Localidad getLocalidad()
     {
-<span class="fc" id="L46">        return localidad;</span>
+<span class="fc" id="L46">        return locality;</span>
     }
     public void setMontoRecaudado(Integer montoRecaudado) {
 <span class="fc" id="L49">        this.montoRecaudado = montoRecaudado;</span>
@@ -83,7 +83,7 @@ public class Proyecto {
 
     public void finalizarElDiaDe(LocalDate fechaDeFinalizacion) {
 <span class="nc bnc" id="L85" title="All 2 branches missed.">        if(noEsProyectoFinalizable(fechaDeFinalizacion)){</span>
-<span class="nc" id="L86">            throw new ProyectoNoFinalizableException(&quot;El proyecto no llego ni a la recaudacion ni a la fecha de fin&quot;);</span>
+<span class="nc" id="L86">            throw new ProyectoNoFinalizableException(&quot;El project no llego ni a la recaudacion ni a la fecha de fin&quot;);</span>
         }
 <span class="nc" id="L88">    }</span>
 

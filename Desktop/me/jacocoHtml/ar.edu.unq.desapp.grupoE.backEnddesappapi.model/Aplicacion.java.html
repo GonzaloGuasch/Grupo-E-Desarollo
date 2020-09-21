@@ -4,55 +4,55 @@ import java.util.List;
 
 
 public class Aplicacion  {
-    private List&lt;Proyecto&gt; proyectos;
+    private List&lt;Project&gt; projects;
     private List&lt;Usuario&gt; usuarios;
 
 <span class="fc" id="L10">    public Aplicacion() {</span>
-<span class="fc" id="L11">        this.proyectos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L11">        this.projects = new ArrayList&lt;&gt;();</span>
 <span class="fc" id="L12">        this.usuarios = new ArrayList&lt;&gt;();</span>
 <span class="fc" id="L13">    }</span>
 
-    public List&lt;Proyecto&gt; getProyectos() {
-<span class="fc" id="L16">        return proyectos;</span>
+    public List&lt;Project&gt; getProyectos() {
+<span class="fc" id="L16">        return projects;</span>
     }
 
     public List&lt;Usuario&gt; getUsuarios() {
 <span class="fc" id="L20">        return usuarios;</span>
     }
 
-    public void agregarProyecto(Proyecto proyecto){
-<span class="fc" id="L24">        this.getProyectos().add(proyecto);</span>
+    public void agregarProyecto(Project project){
+<span class="fc" id="L24">        this.getProyectos().add(project);</span>
 <span class="fc" id="L25">    }</span>
 
-    public void agregarUsuarios(Usuario usuario){
-<span class="fc" id="L28">        this.getUsuarios().add(usuario);</span>
+    public void agregarUsuarios(Usuario user){
+<span class="fc" id="L28">        this.getUsuarios().add(user);</span>
 <span class="fc" id="L29">    }</span>
 
-    public Integer calcularDineroNecesarioParaProveerInternet(Proyecto proyecto){
-<span class="pc bpc" id="L32" title="1 of 2 branches missed.">        if(proyecto.tieneFactorCustom()){</span>
-<span class="fc" id="L33">            return (proyecto.calcularDineroEnBaseAFactor());</span>
+    public Integer calcularDineroNecesarioParaProveerInternet(Project project){
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">        if(project.haveFactorCustom()){</span>
+<span class="fc" id="L33">            return (project.calculateMoneyBasedOnfactor());</span>
         }
             else{
-<span class="nc" id="L36">                return (proyecto.calcularDineroDefault());</span>
+<span class="nc" id="L36">                return (project.calculateMoneyDefault());</span>
         }
     }
 
-    public List&lt;Proyecto&gt; topDiezDeDonaciones(){
-<span class="fc" id="L41">        List&lt;Proyecto&gt; topDeProyectos = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L42">        Proyecto proyectoAComparar = proyectos.get(0);</span>
+    public List&lt;Project&gt; topDiezDeDonaciones(){
+<span class="fc" id="L41">        List&lt;Project&gt; topDeProjects = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L42">        Project projectAComparar = projects.get(0);</span>
 <span class="fc" id="L43">        Integer contador = 10;</span>
-<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (Proyecto proyecto : proyectos){</span>
-<span class="pc bpc" id="L45" title="3 of 4 branches missed.">            if (proyecto.getMontoRecaudado() &gt; proyectoAComparar.getMontoRecaudado() &amp;&amp; contador &gt; 0){</span>
-<span class="nc" id="L46">                    topDeProyectos.add(proyecto);</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (Project project : projects){</span>
+<span class="pc bpc" id="L45" title="3 of 4 branches missed.">            if (project.getAmountCollected() &gt; projectAComparar.getAmountCollected() &amp;&amp; contador &gt; 0){</span>
+<span class="nc" id="L46">                    topDeProjects.add(project);</span>
 <span class="nc" id="L47">                    contador -= 1;</span>
             }
 <span class="fc bfc" id="L49" title="All 2 branches covered.">            if (contador &gt; 0){</span>
-<span class="fc" id="L50">                topDeProyectos.add(proyectoAComparar);</span>
+<span class="fc" id="L50">                topDeProjects.add(projectAComparar);</span>
 <span class="fc" id="L51">                contador -= 1;</span>
             }
 
 <span class="fc" id="L54">        }</span>
-<span class="fc" id="L55">        return topDeProyectos;</span>
+<span class="fc" id="L55">        return topDeProjects;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

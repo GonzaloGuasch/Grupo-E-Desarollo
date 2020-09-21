@@ -8,8 +8,8 @@ public class UsuarioAdmin extends Usuario{
 <span class="fc" id="L8">        cantidadDeProyectosCerrados = 0;</span>
 <span class="fc" id="L9">    }</span>
 
-    public void finalizarProyecto(Proyecto proyectoSinFinalizarMock, LocalDate fechaDeFinalizacion) {
-<span class="fc" id="L12">        proyectoSinFinalizarMock.finalizarElDiaDe(fechaDeFinalizacion);</span>
+    public void finalizarProyecto(Project projectSinFinalizarMock, LocalDate fechaDeFinalizacion) {
+<span class="fc" id="L12">        projectSinFinalizarMock.endTheDayOf(fechaDeFinalizacion);</span>
 <span class="fc" id="L13">        this.cantidadDeProyectosCerrados = this.cantidadDeProyectosCerrados + 1;</span>
 <span class="fc" id="L14">    }</span>
 
