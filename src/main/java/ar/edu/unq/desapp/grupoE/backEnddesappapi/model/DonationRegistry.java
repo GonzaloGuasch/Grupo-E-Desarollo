@@ -4,31 +4,31 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegistroDeDonaciones {
-    private List<EntradaDeRegistroDeDonacion> registroDeDonaciones;
+public class DonationRegistry {
+    private List<DonationRecordEntry> donationRegistry;
 
 
-    public RegistroDeDonaciones(){
-        this.registroDeDonaciones = new ArrayList<>();
+    public DonationRegistry(){
+        this.donationRegistry = new ArrayList<>();
     }
 
-    public Integer darBonoSiEsLaSegundaDonacionDelMes(Month mesDeLaDonacion) {
-        Integer montoDelBono = 0;
-         for(EntradaDeRegistroDeDonacion entradaDeRegistroDeDonacion: this.registroDeDonaciones){
-             if(entradaDeRegistroDeDonacion.esDeMes(mesDeLaDonacion)){
-                 montoDelBono = 500;
+    public Integer giveBonusIfItIsTheSecondDonationOfTheMonth(Month monthOfDonation) {
+        Integer bonusAmount = 0;
+         for(DonationRecordEntry donationRecordEntry : this.donationRegistry){
+             if(donationRecordEntry.itsMonth(monthOfDonation)){
+                 bonusAmount = 500;
              }
          }
 
-        return montoDelBono;
+        return bonusAmount;
     }
-    public void registrarNuevaDonacion(String nombreDeProyectoADonar, Integer cantidadDeDineroADonar) {
-        EntradaDeRegistroDeDonacion nuevaDonacion = new EntradaDeRegistroDeDonacion(nombreDeProyectoADonar, LocalDate.now(), cantidadDeDineroADonar);
-        this.registroDeDonaciones.add(nuevaDonacion);
+    public void registerNewDonation(String projectNameToDonate, Integer amountMoneyToDonate) {
+        DonationRecordEntry nuevaDonacion = new DonationRecordEntry(projectNameToDonate, LocalDate.now(), amountMoneyToDonate);
+        this.donationRegistry.add(nuevaDonacion);
     }
 
 
-    public Integer cantidadDeRegistros() {
-        return this.registroDeDonaciones.size();
+    public Integer amountOfRecords() {
+        return this.donationRegistry.size();
     }
 }

@@ -14,8 +14,8 @@ public class RegistroDeDonaciones {
 
     public Integer darBonoSiEsLaSegundaDonacionDelMes(Month mesDeLaDonacion) {
 <span class="fc" id="L16">        Integer montoDelBono = 0;</span>
-<span class="fc bfc" id="L17" title="All 2 branches covered.">         for(EntradaDeRegistroDeDonacion entradaDeRegistroDeDonacion: this.registroDeDonaciones){</span>
-<span class="pc bpc" id="L18" title="1 of 2 branches missed.">             if(entradaDeRegistroDeDonacion.esDeMes(mesDeLaDonacion)){</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">         for(EntradaDeRegistroDeDonacion donationRecordEntry: this.registroDeDonaciones){</span>
+<span class="pc bpc" id="L18" title="1 of 2 branches missed.">             if(donationRecordEntry.esDeMes(mesDeLaDonacion)){</span>
 <span class="fc" id="L19">                 montoDelBono = 500;</span>
              }
 <span class="fc" id="L21">         }</span>

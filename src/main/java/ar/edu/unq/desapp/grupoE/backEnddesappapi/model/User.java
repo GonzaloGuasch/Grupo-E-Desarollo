@@ -10,7 +10,7 @@ public class User {
     private String password;
     private String nickName;
     private Integer amountOfPoints;
-    private RegistroDeDonaciones donationRegistry;
+    private DonationRegistry donationRegistry;
 
 
     public User(String userName, String email, String password, String nickName){
@@ -19,18 +19,18 @@ public class User {
         this.password = password;
         this.nickName = nickName;
         this.amountOfPoints = 0;
-        this.donationRegistry = new RegistroDeDonaciones();
+        this.donationRegistry = new DonationRegistry();
     }
 
     public Integer getAmountOfPoints() { return amountOfPoints; }
-    public RegistroDeDonaciones getDonationRegistry() { return donationRegistry; }
+    public DonationRegistry getDonationRegistry() { return donationRegistry; }
 
     public void donateFor(Project projectToDonate, int amountOfMoneyToDonate) {
         Integer  pointsForDonation = projectToDonate.givePointsForDonation(amountOfMoneyToDonate);
-        Integer pointsForBonus = this.getDonationRegistry().darBonoSiEsLaSegundaDonacionDelMes(LocalDate.now().getMonth());
+        Integer pointsForBonus = this.getDonationRegistry().giveBonusIfItIsTheSecondDonationOfTheMonth(LocalDate.now().getMonth());
 
         projectToDonate.receiveDonation(amountOfMoneyToDonate);
-        this.getDonationRegistry().registrarNuevaDonacion(projectToDonate.getProjectName(), amountOfMoneyToDonate);
+        this.getDonationRegistry().registerNewDonation(projectToDonate.getProjectName(), amountOfMoneyToDonate);
 
 
         this.scorePoints(pointsForDonation + pointsForBonus);
@@ -41,6 +41,6 @@ public class User {
     }
 
     public Integer amountOfHistoricalDonations() {
-        return this.getDonationRegistry().cantidadDeRegistros();
+        return this.getDonationRegistry().amountOfRecords();
     }
 }
