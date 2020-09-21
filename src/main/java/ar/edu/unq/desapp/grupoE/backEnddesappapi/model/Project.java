@@ -82,7 +82,7 @@ public class Project {
 
     public void endTheDayOf(LocalDate finishDate) {
         if(itIsNotFinalizableProject(finishDate)){
-            throw new ProyectoNoFinalizableException("El proyecto no llego ni a la recaudacion ni a la fecha de fin");
+            throw new ProjectNotFinalizableException("El proyecto no llego ni a la recaudacion ni a la fecha de fin");
         }
     }
 

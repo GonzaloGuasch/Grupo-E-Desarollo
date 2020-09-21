@@ -1,7 +1,7 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Locality;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Project;
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.ProyectoNoFinalizableException;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.ProjectNotFinalizableException;
 
 import java.time.LocalDate;
 
@@ -32,7 +32,7 @@ public class ProjectMock extends Project {
 
     public void endTheDayOf(LocalDate finishDate) {
         if(noEsProyectoFinalizable(finishDate)){
-            throw new ProyectoNoFinalizableException("El proyecto no llego ni a la recaudacion ni a la fecha de fin");
+            throw new ProjectNotFinalizableException("El proyecto no llego ni a la recaudacion ni a la fecha de fin");
         }
     }
 
