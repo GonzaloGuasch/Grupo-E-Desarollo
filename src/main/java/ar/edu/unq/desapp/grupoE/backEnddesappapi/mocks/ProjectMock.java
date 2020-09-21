@@ -1,5 +1,5 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks;
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Localidad;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Locality;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Project;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.ProyectoNoFinalizableException;
 
@@ -11,8 +11,8 @@ public class ProjectMock extends Project {
     private Integer montoRecadudao;
     private Integer montoTotal;
 
-    public ProjectMock(String nombreProyecto, Integer porcentajeMin, LocalDate fechaInicio, LocalDate fechaFin, Integer factor, Localidad localidad) {
-        super(nombreProyecto, porcentajeMin, fechaInicio, fechaFin, factor, localidad);
+    public ProjectMock(String nombreProyecto, Integer porcentajeMin, LocalDate fechaInicio, LocalDate fechaFin, Integer factor, Locality locality) {
+        super(nombreProyecto, porcentajeMin, fechaInicio, fechaFin, factor, locality);
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.montoRecadudao = 100;

@@ -1,6 +1,6 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi;
 
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalidadMock;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalityMock;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.UsuarioMock;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.App;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Project;
@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class AppTest {
 
-    LocalidadMock localityQuilmes, localityBernal, localityBegui, localityDonBosco, localityAvellaneda, localityVarela, localitySolano, localityHudson, localityBosques, localityElPato, localityEzpeleta, localityGutierrez;
+    LocalityMock localityQuilmes, localityBernal, localityBegui, localityDonBosco, localityAvellaneda, localityVarela, localitySolano, localityHudson, localityBosques, localityElPato, localityEzpeleta, localityGutierrez;
     LocalDate startDate;
     LocalDate endDate;
     Project projectQ, projectB, projectBE, projectDB, projectAV, projectVA, projectSO, projectHU, projectEZ, projectGU, projectBQ, projectEP;
@@ -32,7 +32,7 @@ public class AppTest {
         startDate = LocalDate.of(2019, 10, 01);
         endDate = LocalDate.of(2020, 10, 01);
 
-        localityQuilmes = new LocalidadMock("Quilmes", "Buenos Aires", 1500, false);
+        localityQuilmes = new LocalityMock("Quilmes", "Buenos Aires", 1500, false);
 
         projectQ = new Project("ProyectoQuilmes", 10, startDate, endDate, 2000, localityQuilmes);
         projectB = new Project("ProyectoBernal", 20, startDate, endDate, 2000, localityBernal);

@@ -1,6 +1,6 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi;
 
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalidadMock;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalityMock;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Project;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProjectTest {
     Project project;
-    LocalidadMock locality;
+    LocalityMock locality;
     LocalDate startDate;
     LocalDate endDate;
 
@@ -17,7 +17,7 @@ public class ProjectTest {
     public void setUp(){
         startDate = LocalDate.of(2019,10,01);
         endDate = LocalDate.of(2020,10,01);
-        locality = new LocalidadMock(null,null,500,null);
+        locality = new LocalityMock(null,null,500,null);
         project = new Project("Initial Project",10, startDate, endDate,2000, locality);
     }
     @Test

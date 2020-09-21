@@ -7,11 +7,11 @@ public class Project {
     private LocalDate startDate;
     private LocalDate endDate;
     private Integer factor;
-    private Localidad locality;
+    private Locality locality;
     private Integer amountCollected;
     private Integer bonusMultiplier;
 
-    public Project(String projectName, Integer porcentageMin, LocalDate startDate, LocalDate endDate, Integer factor, Localidad locality) {
+    public Project(String projectName, Integer porcentageMin, LocalDate startDate, LocalDate endDate, Integer factor, Locality locality) {
         this.projectName = projectName;
         this.porcentageMin = porcentageMin;
         this.startDate = startDate;
@@ -20,14 +20,14 @@ public class Project {
         this.locality = locality;
         this.amountCollected = 0;
 
-        if(locality != null && locality.getCantidadDePoblacion() < 2000){
+        if(locality != null && locality.getAmountOfPopulation() < 2000){
             this.bonusMultiplier = 2;
         }else{
             this.bonusMultiplier = 1;
         }
     }
 
-    public Project(String projectName, LocalDate startDate, LocalDate endDate, Localidad locality) {
+    public Project(String projectName, LocalDate startDate, LocalDate endDate, Locality locality) {
         this.projectName = projectName;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -40,7 +40,7 @@ public class Project {
 
     public String getProjectName() { return projectName; }
     public Integer getFactor() { return factor; }
-    public Localidad getLocality()
+    public Locality getLocality()
     {
         return locality;
     }
@@ -52,7 +52,7 @@ public class Project {
         return amountCollected;
     }
     public Integer getCantidadDePoblacionParaProyecto() {
-        return this.getLocality().getCantidadDePoblacion();
+        return this.getLocality().getAmountOfPopulation();
     }
     private Integer getBonusMultiplier() {return this.bonusMultiplier;}
 

@@ -1,16 +1,16 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi;
 
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Localidad;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Locality;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LocalidadTest {
+public class LocalityTest {
 
 
     @Test
     public void creo_una_localiad_con_nombre_provincia_cantidadPoblacion_y_si_esta_conectada() {
-        Localidad nuevaLocalidad = new Localidad("Quilmes", "Buenos Aires", 400000, true);
+        Locality nuevaLocality = new Locality("Quilmes", "Buenos Aires", 400000, true);
 
-        assertEquals(nuevaLocalidad.getnombre(), "Quilmes");
+        assertEquals(nuevaLocality.getName(), "Quilmes");
     }
 }

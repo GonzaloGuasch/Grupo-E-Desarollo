@@ -1,5 +1,5 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi;
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalidadMock;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalityMock;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.ProjectMock;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Usuario;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,13 +13,13 @@ class UsuarioTest {
 	private ProjectMock proyectoDeDeDosMilHabitantes;
 	private ProjectMock proyectoDeMenosDeDosMilHabitantes;
 	private Usuario usuarioDonador;
-	private LocalidadMock localidadMock;
-	private LocalidadMock localidadDeMenosDeDosMilHabitantes;
+	private LocalityMock localidadMock;
+	private LocalityMock localidadDeMenosDeDosMilHabitantes;
 
 	@BeforeEach
 	public void setUp(){
-		localidadMock = new LocalidadMock("lm", "bs", 2002, true);
-		localidadDeMenosDeDosMilHabitantes = new LocalidadMock("lm", "bs", 800, true);
+		localidadMock = new LocalityMock("lm", "bs", 2002, true);
+		localidadDeMenosDeDosMilHabitantes = new LocalityMock("lm", "bs", 800, true);
 		proyectoDeMenosDeDosMilHabitantes = new ProjectMock("Prueba", null, null,null, null, localidadDeMenosDeDosMilHabitantes);
 		proyectoDeDeDosMilHabitantes = new ProjectMock("prueba", null,null, null, null, localidadMock);
 		usuarioDonador = new Usuario("Prueba", "prueba@gmail.com", "1234", "apodo");
