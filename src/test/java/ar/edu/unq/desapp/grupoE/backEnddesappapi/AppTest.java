@@ -33,9 +33,10 @@ public class AppTest {
         endDate = LocalDate.of(2020, 10, 01);
 
         localityQuilmes = new LocalityMock("Quilmes", "Buenos Aires", 1500, false);
+        localityBernal = new LocalityMock("Bernal", "Buenos Aires",1200,false);
 
         projectQ = new Project("ProyectoQuilmes", 10, startDate, endDate, 2000, localityQuilmes);
-        projectB = new Project("ProyectoBernal", 20, startDate, endDate, 2000, localityBernal);
+        projectB = new Project("ProyectoBernal", 20, startDate, endDate, 0, localityBernal);
         projectBE = new Project("ProyectoBerazategui", 30, startDate, endDate, 2000, localityBegui);
         projectDB = new Project("ProyectoDonBosco", 40, startDate, endDate, 2000, localityDonBosco);
         projectAV = new Project("ProyectoAvellaneda", 50, startDate, endDate, 2000, localityAvellaneda);
@@ -50,6 +51,7 @@ public class AppTest {
 
         projects = new ArrayList<>();
         projects.add(projectQ);
+        projects.add(projectB);
 
         usuario = new UserMock("Willy", "willy@gmail.com", "willy", "willy");
         usuarios = new ArrayList<>();
@@ -96,6 +98,12 @@ public class AppTest {
     @Test
     public void testGivenAnAppAndAProjectVerifyTheMoneyNeededToProvideInternet(){
         assertEquals(app.calculateMoneyNeededToProvideInternet(projectQ),3000000);
+    }
+
+    @Test
+    public void testGivenAnAppAndAProjectWithoutVerifyTheMoneyNeededToProvideInternet(){
+
+        assertEquals(app.calculateMoneyNeededToProvideInternet(projectB),1200000);
     }
 
     @Test

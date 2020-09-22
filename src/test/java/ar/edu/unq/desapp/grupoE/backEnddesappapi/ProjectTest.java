@@ -55,4 +55,12 @@ public class ProjectTest {
         assertEquals(project_default.getPorcentageMin(), 100);
     }
 
+    @Test
+    public void testGivenAProjectWithoutVerifyTheMoneyNeededToProvideInternet(){
+        Project projectWithOutFactor = new Project("Project WithoutFactor",startDate,endDate,locality);
+
+        assertEquals(projectWithOutFactor.calculateMoneyDefault(),500000);
+    }
+
+
 }
