@@ -6,26 +6,26 @@ import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.ProjectNotFinalizableExce
 import java.time.LocalDate;
 
 public class ProjectMock extends Project {
-    private LocalDate fechaFin;
-    private LocalDate fechaInicio;
-    private Integer montoRecadudao;
-    private Integer montoTotal;
+    private LocalDate finishDate;
+    private LocalDate startDate;
+    private Integer raisedMoney;
+    private Integer moneyRaised;
 
     public ProjectMock(String projectName, Integer minimunPorcentage, LocalDate startDate, LocalDate finishDate, Integer factor, Locality locality) {
         super(projectName, minimunPorcentage, startDate, finishDate, factor, locality);
-        this.fechaInicio = startDate;
-        this.fechaFin = finishDate;
-        this.montoRecadudao = 100;
-        this.montoTotal = 90;
+        this.startDate = startDate;
+        this.finishDate = finishDate;
+        this.raisedMoney = 100;
+        this.moneyRaised = 90;
     }
 
     public ProjectMock(LocalDate startDate, LocalDate finishDate, Integer minimunCollected, Integer collected) {
         super(null, minimunCollected, startDate, finishDate, null ,null);
-        this.fechaInicio = startDate;
-        this.fechaFin = finishDate;
+        this.startDate = startDate;
+        this.finishDate = finishDate;
 
-        this.montoRecadudao = 100;
-        this.montoTotal = 90;
+        this.raisedMoney = 100;
+        this.moneyRaised = 90;
     }
     public void receiveDonation(Integer amountOfMoney){
     }
@@ -37,6 +37,6 @@ public class ProjectMock extends Project {
     }
 
     private boolean noEsProyectoFinalizable(LocalDate fechaDeFinalizacion) {
-        return fechaDeFinalizacion.isBefore(this.fechaFin) || this.montoRecadudao < this.montoTotal;
+        return fechaDeFinalizacion.isBefore(this.finishDate) || this.raisedMoney < this.moneyRaised;
     }
 }
