@@ -51,7 +51,7 @@ public class Project {
     public Integer getAmountCollected(){
         return amountCollected;
     }
-    public Integer getCantidadDePoblacionParaProyecto() {
+    public Integer getAmountOfPopulationForProject() {
         return this.getLocality().getAmountOfPopulation();
     }
     private Integer getBonusMultiplier() {return this.bonusMultiplier;}
@@ -69,11 +69,11 @@ public class Project {
     }
 
     public Integer calculateMoneyBasedOnfactor() {
-        return this.getCantidadDePoblacionParaProyecto() * (this.getFactor());
+        return this.getAmountOfPopulationForProject() * (this.getFactor());
     }
 
     public Integer calculateMoneyDefault() {
-        return this.getCantidadDePoblacionParaProyecto() * 1000;
+        return this.getAmountOfPopulationForProject() * 1000;
     }
 
     public boolean haveFactorCustom() {
