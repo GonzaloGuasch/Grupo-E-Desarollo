@@ -1,0 +1,9 @@
+---------------------------------------------------------------------
+TAG 1.0.0
+---------------------------------------------------------------------
+NEW FEATURES
+* An application that can add projects and users
+* Projects with start date, finish date, money to raised and minimun porcentage
+* Users can donate and users admins can close projects when they reach the money or the finish date
+NOTES
+* Codacy coverage, we hace jacoco reporter and codacy-coverage. However, in the codacy does not show it.
