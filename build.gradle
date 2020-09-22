@@ -34,13 +34,12 @@ test {
 }
 jacoco {
 	toolVersion = "0.8.5"
-	reportsDir = file("Desktop/me")
 }
 jacocoTestReport {
 	reports {
-		xml.enabled false
+		xml.enabled true
 		csv.enabled false
-		html.destination file("Desktop/me/jacocoHtml")
+		html.enabled false
 	}
 }
 
