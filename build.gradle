@@ -15,6 +15,7 @@ repositories {
 }
 
 dependencies {
+	implementation('org.postgresql:postgresql')
 	testCompile "org.mockito:mockito-core:2.+"
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -27,7 +28,10 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation 'junit:junit:4.13'
 }
-
+configurations {
+	providedRuntime
+	codacy
+}
 test {
 	useJUnitPlatform()
 	finalizedBy jacocoTestReport
@@ -42,5 +46,11 @@ jacocoTestReport {
 		html.enabled false
 	}
 }
+
+
+
+
+
+
 
 
