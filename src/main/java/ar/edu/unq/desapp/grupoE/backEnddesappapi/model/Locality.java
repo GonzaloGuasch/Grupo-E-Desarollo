@@ -31,9 +31,10 @@ public class Locality {
     public String getName() {
         return this.name;
     }
-
+    public String getProvince() {return this.province;}
     public Integer getAmountOfPopulation() {
         return this.amountOfPopulation;
     }
+    public Boolean getisConnected() { return this.isConnected; }
     public Long getId(){ return id; }
 }

@@ -21,4 +21,8 @@ public class LocalityService {
     public List<Locality> getAll() {
         return localityRepository.findAll();
     }
+
+    public Locality save_locality(Locality new_locality) {
+        return this.localityRepository.save(new_locality);
+    }
 }
