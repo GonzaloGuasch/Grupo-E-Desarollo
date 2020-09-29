@@ -3,10 +3,18 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.*;
 
+@Entity
 public class DonationRegistry {
+
+    @Column
+    @OneToMany(cascade = CascadeType.ALL)
     private List<DonationRecordEntry> donationRegistry;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     public DonationRegistry(){
         this.donationRegistry = new ArrayList<>();
@@ -31,4 +39,6 @@ public class DonationRegistry {
     public Integer amountOfRecords() {
         return this.donationRegistry.size();
     }
+
+    public Long getId(){ return id;}
 }

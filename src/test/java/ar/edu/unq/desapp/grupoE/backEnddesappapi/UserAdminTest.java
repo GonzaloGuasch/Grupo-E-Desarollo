@@ -2,7 +2,7 @@ package ar.edu.unq.desapp.grupoE.backEnddesappapi;
 
 
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.ProjectMock;
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.ProjectNotFinalizableException;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.exceptions.ProjectNotFinalizableException;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.UserAdmin;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

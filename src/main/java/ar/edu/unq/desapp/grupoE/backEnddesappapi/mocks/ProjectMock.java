@@ -1,7 +1,7 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Locality;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Project;
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.ProjectNotFinalizableException;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.exceptions.ProjectNotFinalizableException;
 
 import java.time.LocalDate;
 
