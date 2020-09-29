@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name="\"cualquier_cosa\"")
 public class User {
 
     @Column
@@ -21,7 +22,8 @@ public class User {
     @Column
     private Integer amountOfPoints;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "donation_registry_id", referencedColumnName = "id")
     private DonationRegistry donationRegistry;
 
     @Id
