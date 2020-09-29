@@ -8,21 +8,21 @@ import javax.persistence.*;
 @Entity
 public class DonationRegistry {
 
-    @Column
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<DonationRecordEntry> donationRegistry;
+    @OneToMany
+    @JoinColumn(name="id",referencedColumnName="id")
+    private List<DonationRecordEntry> donationsRegistryRecord;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     public DonationRegistry(){
-        this.donationRegistry = new ArrayList<>();
+        this.donationsRegistryRecord = new ArrayList<>();
     }
 
     public Integer giveBonusIfItIsTheSecondDonationOfTheMonth(Month monthOfDonation) {
         Integer bonusAmount = 0;
-         for(DonationRecordEntry donationRecordEntry : this.donationRegistry){
+         for(DonationRecordEntry donationRecordEntry : this.donationsRegistryRecord){
              if(donationRecordEntry.itsMonth(monthOfDonation)){
                  bonusAmount = 500;
              }
@@ -32,12 +32,12 @@ public class DonationRegistry {
     }
     public void registerNewDonation(String projectNameToDonate, Integer amountMoneyToDonate) {
         DonationRecordEntry newDonation = new DonationRecordEntry(projectNameToDonate, LocalDate.now(), amountMoneyToDonate);
-        this.donationRegistry.add(newDonation);
+        this.donationsRegistryRecord.add(newDonation);
     }
 
 
     public Integer amountOfRecords() {
-        return this.donationRegistry.size();
+        return this.donationsRegistryRecord.size();
     }
 
     public Long getId(){ return id;}

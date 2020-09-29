@@ -23,7 +23,6 @@ public class Project {
     @Column
     private Integer factor;
 
-    @Column
     @OneToOne
     private Locality locality;
 

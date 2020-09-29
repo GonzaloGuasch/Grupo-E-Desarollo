@@ -17,6 +17,7 @@ public class DonationRecordEntry {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="donation_record_entry_id")
     private Long id;
 
     public DonationRecordEntry(){ }

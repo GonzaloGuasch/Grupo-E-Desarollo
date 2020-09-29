@@ -21,7 +21,6 @@ public class User {
     @Column
     private Integer amountOfPoints;
 
-    @Column
     @OneToOne
     private DonationRegistry donationRegistry;
 
