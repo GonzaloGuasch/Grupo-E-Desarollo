@@ -13,11 +13,6 @@ public class LocalityService {
     @Autowired
     private LocalityRepository localityRepository;
 
-
-    public LocalityService(){
-
-    }
-
     public List<Locality> getAll() {
         return localityRepository.findAll();
     }

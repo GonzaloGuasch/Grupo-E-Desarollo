@@ -4,7 +4,7 @@ import javax.persistence.*;
 @Entity
 public class Locality {
 
-    @Column
+    @Column(unique=true)
     private String name;
 
     @Column
