@@ -1,4 +1,6 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.model;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 import java.time.Month;
 import javax.persistence.*;
@@ -10,6 +12,7 @@ public class DonationRecordEntry {
     private String projectName;
 
     @Column
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate donationDate;
 
     @Column
@@ -32,6 +35,6 @@ public class DonationRecordEntry {
     public Boolean itsMonth(Month monthOfDonation) {
         return this.donationDate.getMonth() == monthOfDonation;
     }
-
+    public String getprojectName(){ return projectName;}
     public Long getId(){ return id;}
 }
