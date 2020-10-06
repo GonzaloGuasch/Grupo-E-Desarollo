@@ -23,4 +23,7 @@ public class DonationEntryController {
     public DonationRecordEntry create(@RequestBody DonationRecordEntry donationRecordEntryToSave){
         return this.userDonationService.save(donationRecordEntryToSave);
     }
+
+    @GetMapping("/topTenDonation")
+    public List<DonationRecordEntry> getTopTen(){return this.userDonationService.getTopTenDonations();}
 }

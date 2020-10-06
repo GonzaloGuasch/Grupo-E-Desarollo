@@ -41,4 +41,8 @@ public class UserDonationService {
         this.userRepository.deleteByName(name);
         return new ArrayList();
     }
+
+    public List<DonationRecordEntry> getTopTenDonations() {
+        return this.donationRecordEntryRepository.getTopTen();
+    }
 }
