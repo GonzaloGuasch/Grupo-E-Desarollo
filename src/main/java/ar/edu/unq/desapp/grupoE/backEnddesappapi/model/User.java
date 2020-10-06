@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="\"cualquier_cosa\"")
+@Table(name="\"user_of_app\"")
 public class User {
 
-    @Column
+    @Column(unique=true)
     private String userName;
 
     @Column

@@ -1,11 +1,7 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers;
-
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Locality;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 
 public class ProjectWrapper {
 
