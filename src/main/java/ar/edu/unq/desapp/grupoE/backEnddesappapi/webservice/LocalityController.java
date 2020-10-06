@@ -20,6 +20,12 @@ public class LocalityController {
         return localityService.getAll();
     }
 
+    @GetMapping("getByName/{name}")
+    public Locality getByName(@PathVariable String name) {return localityService.getByName(name);}
+
+    @DeleteMapping("delete/{name}")
+    public List deleteByName(@PathVariable String name) {return localityService.deleteByName(name);}
+
     @PostMapping("/create")
     public Locality create_locality(@RequestBody Locality new_locality) { return localityService.save_locality(new_locality);}
 }
