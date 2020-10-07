@@ -26,4 +26,6 @@ public class DonationEntryController {
 
     @GetMapping("/topTenDonation")
     public List<DonationRecordEntry> getTopTen(){return this.userDonationService.getTopTenDonations();}
+
+
 }

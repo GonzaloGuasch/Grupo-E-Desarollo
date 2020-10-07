@@ -28,4 +28,7 @@ public class LocalityController {
 
     @PostMapping("/create")
     public Locality create_locality(@RequestBody Locality new_locality) { return localityService.save_locality(new_locality);}
+
+    @GetMapping("/topOldestDonation")
+    public List<Locality> getTopTenOfOldestDonation(){return this.localityService.getTopTenOldestdonation();}
 }

@@ -22,4 +22,13 @@ public interface LocalityRepository extends JpaRepository<Locality, Long> {
     @Query( value= "DELETE FROM locality WHERE name = :locality_name",
             nativeQuery = true)
     Integer deleteByName(@Param("locality_name") String locality_name);
+
+    @Query(value =  "SELECT l1.id, l1.amount_of_population, l1.is_connected, l1.name, l1.province  " +
+                    "FROM donation_record_entry " +
+                        "FULL JOIN project as p1  ON donation_record_entry.project_name = p1.project_name " +
+                        "FULL JOIN locality as l1 ON p1.project_name = l1.name " +
+            "ORDER BY donation_date " +
+            "DESC " +
+            "LIMIT 10", nativeQuery = true)
+    List<Locality> getTopTenWithOldestDonation();
 }

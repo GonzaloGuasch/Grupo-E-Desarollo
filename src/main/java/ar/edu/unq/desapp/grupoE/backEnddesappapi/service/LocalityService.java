@@ -29,4 +29,8 @@ public class LocalityService {
          this.localityRepository.deleteByName(name);
          return new ArrayList();
     }
+
+    public List<Locality> getTopTenOldestdonation() {
+        return this.localityRepository.getTopTenWithOldestDonation();
+    }
 }

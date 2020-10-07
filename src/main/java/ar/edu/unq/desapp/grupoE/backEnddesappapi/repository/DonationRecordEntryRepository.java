@@ -10,7 +10,13 @@ import java.util.List;
 @Repository
 public interface DonationRecordEntryRepository extends JpaRepository<DonationRecordEntry, Long> {
 
-    @Query( value= "SELECT * FROM donation_record_entry ORDER BY donated_amount DESC LIMIT 10",
+    @Query( value=  "SELECT * FROM donation_record_entry " +
+                    "ORDER BY donated_amount " +
+                    "DESC" +
+                    " LIMIT 10",
             nativeQuery = true)
     List<DonationRecordEntry> getTopTen();
+
+
+
 }
