@@ -1,4 +1,4 @@
-package ar.edu.unq.desapp.grupoE.backEnddesappapi;
+package ar.edu.unq.desapp.grupoE.backEnddesappapi.modelTest;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.LocalityMock;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.mocks.ProjectMock;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.User;
