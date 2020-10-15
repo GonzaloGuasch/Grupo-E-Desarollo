@@ -35,7 +35,10 @@ public class UserDonationService {
 
     public List<User> getAllUsers() { return this.userRepository.findAll(); }
 
-    public User createUser(User user) { return this.userRepository.save(user); }
+    public User createUser(User user) {
+        User userToSave = new User(user.getUserName(),user.getEmail(), user.getEmail(), user.getNickName());
+        return this.userRepository.save(userToSave);
+    }
 
     public List deleteUserByName(String name) {
         this.userRepository.deleteByName(name);

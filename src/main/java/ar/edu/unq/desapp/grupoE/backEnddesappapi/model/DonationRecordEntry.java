@@ -35,6 +35,7 @@ public class DonationRecordEntry {
     public Boolean itsMonth(Month monthOfDonation) {
         return this.donationDate.getMonth() == monthOfDonation;
     }
-    public String getprojectName(){ return projectName;}
-    public Long getId(){ return id;}
+    public Integer getDonatedAmount(){ return donatedAmount; }
+    public String getprojectName(){ return projectName; }
+    public Long getId(){ return id; }
 }

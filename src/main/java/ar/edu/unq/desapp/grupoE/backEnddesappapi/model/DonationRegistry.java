@@ -8,8 +8,7 @@ import javax.persistence.*;
 @Entity
 public class DonationRegistry {
 
-    @OneToMany
-    @JoinColumn(name="id",referencedColumnName="id")
+    @OneToMany(cascade=CascadeType.ALL)
     private List<DonationRecordEntry> donationsRegistryRecord;
 
     @Id

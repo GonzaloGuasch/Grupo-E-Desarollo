@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Entity
 public class Project {
 
-    @Column
+    @Column(unique=true)
     private String projectName;
 
     @Column

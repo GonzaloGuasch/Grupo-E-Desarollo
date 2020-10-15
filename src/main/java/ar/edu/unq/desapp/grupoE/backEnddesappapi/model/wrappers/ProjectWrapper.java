@@ -12,7 +12,7 @@ public class ProjectWrapper {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate endDate;
     private Integer factor;
-    private String locali_name;
+    private String localityName;
 
     public String getProjectName() {
         return projectName;
@@ -34,7 +34,7 @@ public class ProjectWrapper {
         return factor;
     }
 
-    public String getLocali_name() {
-        return locali_name;
+    public String getLocalityName() {
+        return localityName;
     }
 }

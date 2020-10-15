@@ -16,4 +16,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query( value= "DELETE FROM user_of_app WHERE userName = :name",
             nativeQuery = true)
     Integer deleteByName(@Param("name") String name);
+
+    User findByuserName(String userName);
 }

@@ -23,7 +23,6 @@ public class User {
     private Integer amountOfPoints;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "donation_registry_id", referencedColumnName = "id")
     private DonationRegistry donationRegistry;
 
     @Id
@@ -40,9 +39,6 @@ public class User {
         this.amountOfPoints = 0;
         this.donationRegistry = new DonationRegistry();
     }
-
-    public Integer getAmountOfPoints() { return amountOfPoints; }
-    private DonationRegistry getDonationRegistry() { return donationRegistry; }
 
     public void donateFor(Project projectToDonate, int amountOfMoneyToDonate) {
         Integer  pointsForDonation = projectToDonate.givePointsForDonation(amountOfMoneyToDonate);
@@ -64,4 +60,10 @@ public class User {
     }
 
     public Long getId(){ return id;}
+    public String getUserName(){return userName;}
+    public String getEmail(){return email;}
+    public String password(){return password;}
+    public String getNickName(){return nickName;}
+    public Integer getAmountOfPoints() { return amountOfPoints; }
+    public DonationRegistry getDonationRegistry() { return donationRegistry; }
 }
