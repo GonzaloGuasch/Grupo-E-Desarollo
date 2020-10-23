@@ -1,22 +1,34 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.model;
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import java.time.LocalDate;
+
 
 @Entity
 @Table(name="\"user_of_app\"")
 public class User {
 
     @Column(unique=true)
+    @NotBlank(message = "Name is required")
+    @Size(min=4, max = 20)
     private String userName;
 
     @Column
+    @NotBlank(message = "Email is required")
+    @Email(message = "Incorrect email")
     private String email;
 
     @Column
+    @NotBlank(message = "Password is required")
+    @Size(min=4, max = 20)
     private String password;
 
     @Column
+    @NotBlank(message = "Nickname is required")
+    @Size(min = 4, max = 10)
     private String nickName;
 
     @Column
