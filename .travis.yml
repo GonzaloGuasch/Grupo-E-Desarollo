@@ -1,4 +1,6 @@
   language: java
+  script:
+    - ./gradlew build --scan -s
   env:
     global:
         - CODACY_API_BASE_URL=79a766339ed949f2b9bb908077f26d5c
