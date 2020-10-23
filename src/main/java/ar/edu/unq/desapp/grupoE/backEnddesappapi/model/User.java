@@ -22,8 +22,6 @@ public class User {
     private String email;
 
     @Column
-    @NotBlank(message = "Password is required")
-    @Size(min=4, max = 20)
     private String password;
 
     @Column
