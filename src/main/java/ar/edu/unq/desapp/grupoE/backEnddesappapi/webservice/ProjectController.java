@@ -22,13 +22,15 @@ public class ProjectController {
         return projectService.getAll();
     }
 
+    @GetMapping("/moneyToCollect/{projectName}")
+    public Integer getTotalAmountOfMoney(@PathVariable String projectName){ return projectService.getTotalOfMoneyNeeded(projectName);}
     @PostMapping("/save")
     public Project save_new_project(@RequestBody ProjectWrapper project_to_save) {
         return this.projectService.save(project_to_save);
     }
 
     @PostMapping("/makeDonation")
-    public void makeNewDonation(@RequestBody NewDonationWrapper newDonation) {
-        this.projectService.makeDonation(newDonation);
+    public Integer makeNewDonation(@RequestBody NewDonationWrapper newDonation) {
+        return this.projectService.makeDonation(newDonation);
     }
 }

@@ -33,12 +33,18 @@ public class ProjectService {
         return this.projectRepository.save(project);
     }
 
-    public void makeDonation(NewDonationWrapper newDonation) {
+    public Integer makeDonation(NewDonationWrapper newDonation) {
         Project projectToDonate = this.projectRepository.findByprojectName(newDonation.getProjectName());
         User userWhoDonated = this.userRepository.findByuserName(newDonation.getUsername());
 
         userWhoDonated.donateFor(projectToDonate, newDonation.getAmountDonated());
         this.projectRepository.save(projectToDonate);
         this.userRepository.save(userWhoDonated);
+        return projectToDonate.getAmountCollected();
+    }
+
+    public Integer getTotalOfMoneyNeeded(String projectName) {
+        Project projectToDonate = this.projectRepository.findByprojectName(projectName);
+        return projectToDonate.calculateMoneyBasedOnfactor();
     }
 }
