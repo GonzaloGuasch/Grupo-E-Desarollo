@@ -7,3 +7,17 @@ NEW FEATURES
 * Users can donate and users admins can close projects when they reach the money or the finish date
 NOTES
 * Codacy coverage, we hace jacoco reporter and codacy-coverage. However, in the codacy does not show it.
+
+---------------------------------------------------------------------
+TAG 2.0.0
+---------------------------------------------------------------------
+NEW FEATURES
+* The controllers were created for: Donation, Locality, Project and User.
+* The services were created for Locality, Project and User.
+* creation of fake data.
+
+NOTES
+* Api documentation with Swagger.
+* I18n US-ES
+
+
