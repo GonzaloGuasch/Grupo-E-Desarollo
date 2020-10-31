@@ -28,11 +28,6 @@ public class UserDonationService {
         return this.donationRecordEntryRepository.save(donationRecordEntry);
     }
 
-    public DonationRegistry createDonationRegistry(DonationRegistryWrapper donationRegistryWrapper) {
-        //todo ver si es necesario hacer este metodo
-        return null;
-    }
-
     public List<User> getAllUsers() { return this.userRepository.findAll(); }
 
     public User createUser(User user) {
