@@ -16,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin
 public class UserController {
 
 
@@ -24,6 +25,9 @@ public class UserController {
 
     @GetMapping("/all")
     public List<User> getAll(){ return userDonationService.getAllUsers();}
+
+    @GetMapping("amountOfPoints/{userName}")
+    public Integer getPoints(@PathVariable String userName){ return userDonationService.amountOfPointsFor(userName);}
 
     @PostMapping("/create")
     public User create(@Valid @RequestBody User user){ return userDonationService.createUser(user);}

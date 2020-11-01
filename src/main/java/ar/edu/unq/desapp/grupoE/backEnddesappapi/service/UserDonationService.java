@@ -32,7 +32,8 @@ public class UserDonationService {
 
     public User createUser(User user) {
         User userToSave = new User(user.getUserName(),user.getEmail(), user.getEmail(), user.getNickName());
-        return this.userRepository.save(userToSave);
+        User userSaved =  this.userRepository.save(userToSave);
+        return userSaved;
     }
 
     public List deleteUserByName(String name) {
@@ -45,4 +46,8 @@ public class UserDonationService {
     }
 
 
+    public Integer amountOfPointsFor(String userName) {
+        User user = this.userRepository.findByuserName(userName);
+        return user.getAmountOfPoints();
+    }
 }
