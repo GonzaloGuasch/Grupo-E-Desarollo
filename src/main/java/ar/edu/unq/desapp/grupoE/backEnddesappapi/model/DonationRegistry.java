@@ -40,4 +40,8 @@ public class DonationRegistry {
     }
 
     public Long getId(){ return id;}
+
+    public List<DonationRecordEntry> getAllRecords() {
+        return this.donationsRegistryRecord;
+    }
 }

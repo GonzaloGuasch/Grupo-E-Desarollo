@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Entity
@@ -76,4 +77,8 @@ public class User {
     public String getNickName(){return nickName;}
     public Integer getAmountOfPoints() { return amountOfPoints; }
     public DonationRegistry getDonationRegistry() { return donationRegistry; }
+
+    public List<DonationRecordEntry> getAllDonationsRecords() {
+        return this.donationRegistry.getAllRecords();
+    }
 }

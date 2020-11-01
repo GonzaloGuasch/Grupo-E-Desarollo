@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.webservice;
 
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.DonationRecordEntry;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.User;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.service.UserDonationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,9 @@ public class UserController {
 
     @DeleteMapping("/delete/{name}")
     public List deleteByName(@PathVariable String name){return userDonationService.deleteUserByName(name);}
+
+    @GetMapping("/GetDonationsRecords/{username}")
+    public List<DonationRecordEntry> getDonationsRecordsOf(@PathVariable String username) {return userDonationService.getDonationRecordsOf(username);}
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)

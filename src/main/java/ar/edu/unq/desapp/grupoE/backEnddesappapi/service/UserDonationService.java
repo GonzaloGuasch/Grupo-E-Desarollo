@@ -50,4 +50,9 @@ public class UserDonationService {
         User user = this.userRepository.findByuserName(userName);
         return user.getAmountOfPoints();
     }
+
+    public List<DonationRecordEntry> getDonationRecordsOf(String username) {
+        User user = this.userRepository.findByuserName(username);
+        return user.getAllDonationsRecords();
+    }
 }
