@@ -47,13 +47,21 @@ public class DataLoader implements ApplicationRunner {
         localityRepository.save(localidadSiete);
         localityRepository.save(localidadOcho);
 
-        projectRepository.save(new Project("tucuman conecta2", 90,  LocalDate.now(), LocalDate.now().plusYears(1), 7600, localidadUno));
-        projectRepository.save(new Project("trato chacho", 10,  LocalDate.now(), LocalDate.now().plusYears(1),1000, localidadDos));
-        projectRepository.save(new Project("san wifi", 90,  LocalDate.now(), LocalDate.now().plusYears(1), 1000, localidadTres));
-        projectRepository.save(new Project("lanus con luz y wifi", 90,  LocalDate.now(), LocalDate.now().plusYears(1), 1000, localidadCuatro));
-        projectRepository.save(new Project("pampa la", 90,  LocalDate.now(), LocalDate.now().plusYears(1), 140, localidadCinco));
-        projectRepository.save(new Project("la rioja no se sonrioja", 90,  LocalDate.now(), LocalDate.now().plusYears(1), 12000, localidadSeis));
-        projectRepository.save(new Project("ataca salta", 90,  LocalDate.now(), LocalDate.now().plusYears(1), 10, localidadSiete));
-        projectRepository.save(new Project("Acciones de misiones", 90,  LocalDate.now(), LocalDate.now().plusYears(1), 5000, localidadOcho));
+        LocalDate endDateOne = LocalDate.of(2020, 7, 10);
+        LocalDate endDateTwo = LocalDate.of(2020, 1, 12);
+        LocalDate endDateThree = LocalDate.of(2024, 2, 5);
+        LocalDate endDateFour = LocalDate.of(2032, 2, 28);
+        LocalDate endDateFive = LocalDate.of(2020, 1, 1);
+        LocalDate endDateSix = LocalDate.of(2120, 12, 5);
+        LocalDate endDateSeven = LocalDate.of(2008, 7, 10);
+        LocalDate endDateEight = LocalDate.now().plusMonths(1);
+        projectRepository.save(new Project("tucuman conecta2", 90,  LocalDate.now().plusDays(1), endDateOne, 7600, localidadUno));
+        projectRepository.save(new Project("trato chacho", 10,  LocalDate.now().plusDays(20), endDateTwo,1000, localidadDos));
+        projectRepository.save(new Project("san wifi", 90,  LocalDate.now().plusDays(25), endDateThree, 1000, localidadTres));
+        projectRepository.save(new Project("lanus con luz y wifi", 90,  LocalDate.now().plusDays(12), endDateFive, 1000, localidadCuatro));
+        projectRepository.save(new Project("pampa la", 90,  LocalDate.now().plusDays(8), endDateFour, 140, localidadCinco));
+        projectRepository.save(new Project("la rioja no se sonrioja", 90, LocalDate.now().plusDays(9), endDateSix, 12000, localidadSeis));
+        projectRepository.save(new Project("ataca salta", 90,  LocalDate.now().plusDays(30), endDateSeven, 10, localidadSiete));
+        projectRepository.save(new Project("Acciones de misiones", 90,  LocalDate.now().plusDays(1), endDateEight, 5000, localidadOcho));
     }
 }

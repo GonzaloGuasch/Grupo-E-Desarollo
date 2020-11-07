@@ -82,6 +82,8 @@ public class Project {
         return this.getLocality().getAmountOfPopulation();
     }
     private Integer getBonusMultiplier() {return this.bonusMultiplier;}
+    public LocalDate getStartDate() { return startDate; }
+    public LocalDate getEndDate() { return endDate; }
 
     public Integer givePointsForDonation(int amountOfMoneyToDonate) {
         if(amountOfMoneyToDonate < 1000){

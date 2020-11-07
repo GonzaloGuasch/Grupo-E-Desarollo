@@ -11,6 +11,7 @@ import ar.edu.unq.desapp.grupoE.backEnddesappapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -46,5 +47,11 @@ public class ProjectService {
     public Integer getTotalOfMoneyNeeded(String projectName) {
         Project projectToDonate = this.projectRepository.findByprojectName(projectName);
         return projectToDonate.calculateMoneyBasedOnfactor();
+    }
+
+    public List<Project> getProjectsNearEndDate() {
+        LocalDate dateToday = LocalDate.now();
+        LocalDate oneMonthFromToday = LocalDate.now().plusMonths(1);
+        return this.projectRepository.getProjectThatEndInAMonth(dateToday, oneMonthFromToday);
     }
 }

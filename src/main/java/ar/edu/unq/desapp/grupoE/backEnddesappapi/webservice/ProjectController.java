@@ -33,4 +33,7 @@ public class ProjectController {
     public Integer makeNewDonation(@RequestBody NewDonationWrapper newDonation) {
         return this.projectService.makeDonation(newDonation);
     }
+
+    @GetMapping("/getProjectsNearEndDate/")
+    public List<Project> getProjectsNearEndDate() {return this.projectService.getProjectsNearEndDate();}
 }
