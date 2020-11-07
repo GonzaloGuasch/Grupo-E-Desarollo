@@ -1,33 +1,40 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.webservice;
 
-import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Email;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.User;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.mail.internet.MimeMessage;
-import java.util.Properties;
+import java.util.List;
 
 @RestController
 @RequestMapping("/mail")
 @CrossOrigin
+@EnableScheduling
 public class MailController {
 
     @Autowired
+    UserRepository userRepository;
+    @Autowired
     private JavaMailSender sender;
 
-    @RequestMapping("/sendEmail")
+
+    @Scheduled(cron = "0 0 9 * * ?")
     public void sendEmail() throws Exception {
-        this.sendEmail("gonzaloguasch98@gmail.com", "prueba", "prueba");
+        List<User> allUsers = userRepository.findAll();
+        for(int i = 0; i < allUsers.size(); i++) {
+            this.sendEmail(allUsers.get(i).getEmail(), "Daily email", "Hi, we want to know if you are okey. Have a good day!");
+        }
     }
 
-    @Scheduled(cron = "0 0 12 * * ?")
+
     private void sendEmail(String to, String subject, String body) throws Exception{
         MimeMessage message = sender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);

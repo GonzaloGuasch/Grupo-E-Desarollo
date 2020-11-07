@@ -28,8 +28,7 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args) {
-        userRepository.save(new User("usuarioUno", "usario@gmail.com", "1234", "nickname"));
-
+        userRepository.save(new User("usuarioUno", "gonzaloguasch98@gmail.com", "1234", "nickname"));
         Locality localidadUno = new Locality("localidad uno", "tucuman", 100, false);
         Locality localidadDos = new Locality("localidad dos", "chaco", 3200, true);
         Locality localidadTres = new Locality("localidad tres", "san juan", 800, false);
