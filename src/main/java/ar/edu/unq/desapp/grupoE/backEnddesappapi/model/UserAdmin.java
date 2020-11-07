@@ -22,7 +22,7 @@ public class UserAdmin extends User {
 
     public void finishProject(Project unfinishedProjectMock, LocalDate finishDate) {
         unfinishedProjectMock.endTheDayOf(finishDate);
-        this.numberOfProjectsClosed = this.numberOfProjectsClosed + 1;
+        this.numberOfProjectsClosed =+ 1;
     }
 
     public Integer getNumberOfProjectsClosed() {

@@ -10,6 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name="\"user_of_app\"")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
 
     @Column(unique=true)

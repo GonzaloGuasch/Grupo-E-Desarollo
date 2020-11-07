@@ -1,6 +1,7 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.webservice;
 
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Project;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.CloseProjectWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.NewDonationWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.ProjectWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.service.ProjectService;
@@ -36,4 +37,7 @@ public class ProjectController {
 
     @GetMapping("/getProjectsNearEndDate/")
     public List<Project> getProjectsNearEndDate() {return this.projectService.getProjectsNearEndDate();}
+
+    @PostMapping("/closeProject")
+    public void closeProject(@RequestBody CloseProjectWrapper closeProjectWrapper) {this.projectService.closeProject(closeProjectWrapper);}
 }

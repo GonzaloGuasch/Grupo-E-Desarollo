@@ -3,10 +3,13 @@ package ar.edu.unq.desapp.grupoE.backEnddesappapi.service;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Locality;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.Project;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.User;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.UserAdmin;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.CloseProjectWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.NewDonationWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.ProjectWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.repository.LocalityRepository;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.repository.ProjectRepository;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.repository.UserAdminRepository;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +26,8 @@ public class ProjectService {
     private LocalityRepository localityRepository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UserAdminRepository userAdminRepository;
 
     public List<Project> getAll(){
         return this.projectRepository.findAll();
@@ -53,5 +58,14 @@ public class ProjectService {
         LocalDate dateToday = LocalDate.now();
         LocalDate oneMonthFromToday = LocalDate.now().plusMonths(1);
         return this.projectRepository.getProjectThatEndInAMonth(dateToday, oneMonthFromToday);
+    }
+
+    public void closeProject(CloseProjectWrapper closeProjectWrapper) {
+        Project projectToClose = this.projectRepository.findByprojectName(closeProjectWrapper.getProjectName());
+        UserAdmin userAdmin = this.userAdminRepository.findByuserName(closeProjectWrapper.getUserAdmin());
+
+        userAdmin.finishProject(projectToClose, LocalDate.now());
+        this.projectRepository.save(projectToClose);
+        this.userAdminRepository.save(userAdmin);
     }
 }

@@ -2,6 +2,7 @@ package ar.edu.unq.desapp.grupoE.backEnddesappapi.webservice;
 
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.DonationRecordEntry;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.User;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.UserAdmin;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.service.UserDonationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,8 +25,11 @@ public class UserController {
     @Autowired
     private UserDonationService userDonationService;
 
-    @GetMapping("/all")
-    public List<User> getAll(){ return userDonationService.getAllUsers();}
+    @GetMapping("/allUsers")
+    public List<User> getAllNormalUsers(){ return userDonationService.getAllNormalUsers();}
+
+    @GetMapping("/allAdmins")
+    public List<UserAdmin> getAllAdmins(){ return userDonationService.getAllAdmins();}
 
     @GetMapping("amountOfPoints/{userName}")
     public Integer getPoints(@PathVariable String userName){ return userDonationService.amountOfPointsFor(userName);}
