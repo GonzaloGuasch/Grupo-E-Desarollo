@@ -32,7 +32,7 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args) {
-        userRepository.save(new User("usuarioUno", "gonzaloguasch98@gmail.com", "1234", "nickname"));
+        User user = new User("usuarioUno", "gonzaloguasch98@gmail.com", "1234", "nickname");
         userAdminRepository.save(new UserAdmin("usuarioAdmin", "gonzaloguasch98@gmail.com", "1234", "el+kpo"));
         Locality localidadUno = new Locality("localidad uno", "tucuman", 100, false);
         Locality localidadDos = new Locality("localidad dos", "chaco", 3200, true);
@@ -62,7 +62,8 @@ public class DataLoader implements ApplicationRunner {
         LocalDate endDateEight = LocalDate.now().plusMonths(1);
 
         Project projectSeven = new Project("ataca salta", 90,  LocalDate.now().plusDays(30), endDateSeven, 10, localidadSiete);
-        projectSeven.receiveDonation(20000);
+        user.donateFor(projectSeven, 20000);
+        userRepository.save(user);
         projectRepository.save(new Project("tucuman conecta2", 90,  LocalDate.now().plusDays(1), endDateOne, 7600, localidadUno));
         projectRepository.save(new Project("trato chacho", 10,  LocalDate.now().plusDays(20), endDateTwo,1000, localidadDos));
         projectRepository.save(new Project("san wifi", 90,  LocalDate.now().plusDays(25), endDateThree, 1000, localidadTres));

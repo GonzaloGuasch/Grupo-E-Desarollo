@@ -20,4 +20,20 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     @Query( value= "SELECT * FROM project WHERE end_date >= :today AND end_date <= :oneMonthFromToday",
             nativeQuery = true)
     List<Project> getProjectThatEndInAMonth(@Param("today")LocalDate today, @Param("oneMonthFromToday") LocalDate oneMonthFromToday);
+
+
+    @Transactional
+    @Modifying(clearAutomatically = true)
+    @Query( value=  "SELECT email " +
+                    "FROM \"user_of_app\" as u " +
+                    "JOIN donation_registry as d " +
+                    "ON u.donation_registry_id = d.id " +
+                    "JOIN donation_registry_donations_registry_record as rr " +
+                    "ON rr.donation_registry_id = d.id " +
+                    "JOIN donation_record_entry as dr " +
+                    "ON dr.donation_record_entry_id = rr.donations_registry_record_donation_record_entry_id " +
+                    "JOIN project as p " +
+                    "ON p.project_name = dr.project_name; ",
+            nativeQuery = true)
+    List<String> getAllMailsOfDonors();
 }

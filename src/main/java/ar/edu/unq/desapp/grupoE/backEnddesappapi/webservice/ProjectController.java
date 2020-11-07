@@ -39,5 +39,5 @@ public class ProjectController {
     public List<Project> getProjectsNearEndDate() {return this.projectService.getProjectsNearEndDate();}
 
     @PostMapping("/closeProject")
-    public void closeProject(@RequestBody CloseProjectWrapper closeProjectWrapper) {this.projectService.closeProject(closeProjectWrapper);}
+    public void closeProject(@RequestBody CloseProjectWrapper closeProjectWrapper) throws Exception {this.projectService.closeProject(closeProjectWrapper);}
 }
