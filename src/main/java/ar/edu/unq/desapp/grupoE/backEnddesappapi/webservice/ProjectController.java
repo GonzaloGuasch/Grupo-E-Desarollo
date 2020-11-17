@@ -23,6 +23,8 @@ public class ProjectController {
         return projectService.getAll();
     }
 
+    @GetMapping("/get/{page_number}")
+    public List<Project> getPageNumber(@PathVariable Integer page_number){return projectService.getPageNumber(page_number);}
     @GetMapping("/moneyToCollect/{projectName}")
     public Integer getTotalAmountOfMoney(@PathVariable String projectName){ return projectService.getTotalOfMoneyNeeded(projectName);}
     @PostMapping("/save")

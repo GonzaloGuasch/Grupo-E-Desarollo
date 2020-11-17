@@ -36,4 +36,12 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
                     "ON p.project_name = dr.project_name; ",
             nativeQuery = true)
     List<String> getAllMailsOfDonors();
+
+    @Modifying(clearAutomatically = true)
+    @Query( value=  "SELECT * " +
+                    "FROM project " +
+                    "LIMIT 3 " +
+                    "OFFSET :page_number",
+            nativeQuery = true)
+    List<Project> getPageProjects(@Param("page_number") Integer page_number);
 }

@@ -91,4 +91,9 @@ public class ProjectService {
 
         sender.send(message);
     }
+
+    public List<Project> getPageNumber(Integer page_number) {
+        page_number = page_number * 3;
+        return this.projectRepository.getPageProjects(page_number);
+    }
 }
