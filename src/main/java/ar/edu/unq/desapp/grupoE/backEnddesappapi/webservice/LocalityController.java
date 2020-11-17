@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("locality")
+@RequestMapping("/locality")
 public class LocalityController {
 
     @Autowired

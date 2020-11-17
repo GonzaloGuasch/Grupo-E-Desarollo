@@ -18,6 +18,7 @@ import java.time.LocalDate;
 @Component
 public class DataLoader implements ApplicationRunner {
 
+
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -61,16 +62,16 @@ public class DataLoader implements ApplicationRunner {
         LocalDate endDateSeven = LocalDate.now();
         LocalDate endDateEight = LocalDate.now().plusMonths(1);
 
-        Project projectSeven = new Project("ataca salta", 90,  LocalDate.now().plusDays(30), endDateSeven, 10, localidadSiete);
+        Project projectSeven = new Project("ataca salta", 90, LocalDate.now().plusDays(30), endDateSeven, 10, localidadSiete);
         user.donateFor(projectSeven, 20000);
         userRepository.save(user);
-        projectRepository.save(new Project("tucuman conecta2", 90,  LocalDate.now().plusDays(1), endDateOne, 7600, localidadUno));
-        projectRepository.save(new Project("trato chacho", 10,  LocalDate.now().plusDays(20), endDateTwo,1000, localidadDos));
-        projectRepository.save(new Project("san wifi", 90,  LocalDate.now().plusDays(25), endDateThree, 1000, localidadTres));
-        projectRepository.save(new Project("lanus con luz y wifi", 90,  LocalDate.now().plusDays(12), endDateFive, 1000, localidadCuatro));
-        projectRepository.save(new Project("pampa la", 90,  LocalDate.now().plusDays(8), endDateFour, 140, localidadCinco));
+        projectRepository.save(new Project("tucuman conecta2", 90, LocalDate.now().plusDays(1), endDateOne, 7600, localidadUno));
+        projectRepository.save(new Project("trato chacho", 10, LocalDate.now().plusDays(20), endDateTwo, 1000, localidadDos));
+        projectRepository.save(new Project("san wifi", 90, LocalDate.now().plusDays(25), endDateThree, 1000, localidadTres));
+        projectRepository.save(new Project("lanus con luz y wifi", 90, LocalDate.now().plusDays(12), endDateFive, 1000, localidadCuatro));
+        projectRepository.save(new Project("pampa la", 90, LocalDate.now().plusDays(8), endDateFour, 140, localidadCinco));
         projectRepository.save(new Project("la rioja no se sonrioja", 90, LocalDate.now().plusDays(9), endDateSix, 12000, localidadSeis));
         projectRepository.save(projectSeven);
-        projectRepository.save(new Project("Acciones de misiones", 90,  LocalDate.now().plusDays(1), endDateEight, 5000, localidadOcho));
+        projectRepository.save(new Project("Acciones de misiones", 90, LocalDate.now().plusDays(1), endDateEight, 5000, localidadOcho));
     }
 }

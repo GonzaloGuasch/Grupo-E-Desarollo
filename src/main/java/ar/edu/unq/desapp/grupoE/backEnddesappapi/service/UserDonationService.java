@@ -5,6 +5,7 @@ import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.DonationRegistry;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.User;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.UserAdmin;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.DonationRegistryWrapper;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.UserLoginWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.repository.DonationRecordEntryRepository;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.repository.UserAdminRepository;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.repository.UserRepository;
@@ -62,4 +63,12 @@ public class UserDonationService {
 
     public List<UserAdmin> getAllAdmins() {
         return this.userAdminRepository.findAll(); }
+
+    public User tryLogIn(UserLoginWrapper userLoginWrapper) {
+        User user = this.userRepository.findByuserName(userLoginWrapper.getUsername());
+        if(user.password().equals(userLoginWrapper.getPassword())){
+            return user;
+        }
+        return null;
+    }
 }

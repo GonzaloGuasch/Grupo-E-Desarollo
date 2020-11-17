@@ -7,9 +7,9 @@ public class ProjectWrapper {
 
     private String projectName;
     private Integer porcentageMin;
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
     private Integer factor;
     private String localityName;

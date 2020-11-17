@@ -3,6 +3,7 @@ package ar.edu.unq.desapp.grupoE.backEnddesappapi.webservice;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.DonationRecordEntry;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.User;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.UserAdmin;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.UserLoginWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.service.UserDonationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,6 @@ import java.util.List;
 @CrossOrigin
 public class UserController {
 
-
     @Autowired
     private UserDonationService userDonationService;
 
@@ -36,6 +36,9 @@ public class UserController {
 
     @PostMapping("/create")
     public User create(@Valid @RequestBody User user){ return userDonationService.createUser(user);}
+
+    @PostMapping("/logIn")
+    public User logIn(@RequestBody UserLoginWrapper userLoginWrapper){ return userDonationService.tryLogIn(userLoginWrapper);}
 
     @DeleteMapping("/delete/{name}")
     public List deleteByName(@PathVariable String name){return userDonationService.deleteUserByName(name);}
