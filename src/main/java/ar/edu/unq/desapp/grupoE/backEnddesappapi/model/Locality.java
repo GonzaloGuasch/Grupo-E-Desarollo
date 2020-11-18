@@ -1,16 +1,21 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.model;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Locality {
 
     @Column(unique=true)
+    @NotBlank(message = "Name is required")
     private String name;
 
     @Column
+    @NotBlank(message = "Province is required")
     private String province;
 
     @Column
+    @NotNull(message = "Amount Of Population is required")
     private Integer amountOfPopulation;
 
     @Column
