@@ -6,9 +6,15 @@ import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.NewDonationWrapp
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.ProjectWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/project")
@@ -33,7 +39,7 @@ public class ProjectController {
     }
 
     @PostMapping("/makeDonation")
-    public Integer makeNewDonation(@RequestBody NewDonationWrapper newDonation) {
+    public Integer makeNewDonation(@Valid @RequestBody NewDonationWrapper newDonation) {
         return this.projectService.makeDonation(newDonation);
     }
 
@@ -42,4 +48,16 @@ public class ProjectController {
 
     @PostMapping("/closeProject")
     public void closeProject(@RequestBody CloseProjectWrapper closeProjectWrapper) throws Exception {this.projectService.closeProject(closeProjectWrapper);}
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return errors;
+    }
 }
