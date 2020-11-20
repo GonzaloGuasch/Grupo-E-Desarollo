@@ -69,8 +69,8 @@ public class ProjectService {
         Project projectToClose = this.projectRepository.findByprojectName(closeProjectWrapper.getProjectName());
         UserAdmin userAdmin = this.userAdminRepository.findByuserName(closeProjectWrapper.getUserAdmin());
         List<String> allUsersEmails = this.projectRepository.getAllMailsOfDonors();
-        this.sendEmailWhenProjectIsClosed(allUsersEmails);
         userAdmin.finishProject(projectToClose, LocalDate.now());
+        this.sendEmailWhenProjectIsClosed(allUsersEmails);
         this.projectRepository.save(projectToClose);
         this.userAdminRepository.save(userAdmin);
     }

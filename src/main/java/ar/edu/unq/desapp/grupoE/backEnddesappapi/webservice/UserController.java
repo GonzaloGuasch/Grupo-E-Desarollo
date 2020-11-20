@@ -1,25 +1,24 @@
 package ar.edu.unq.desapp.grupoE.backEnddesappapi.webservice;
-
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.DonationRecordEntry;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.User;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.UserAdmin;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.UserLoginWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.service.UserDonationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
-
 import java.util.List;
 
+
+@CrossOrigin
 @RestController
 @RequestMapping("/user")
-@CrossOrigin
 public class UserController {
 
     @Autowired
