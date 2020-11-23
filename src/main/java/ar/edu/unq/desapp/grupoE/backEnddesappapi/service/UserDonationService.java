@@ -71,4 +71,8 @@ public class UserDonationService {
         }
         return null;
     }
+
+    public User isUserRegister(String userEmail) {
+        return this.userRepository.findByemail(userEmail);
+    }
 }

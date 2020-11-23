@@ -45,6 +45,9 @@ public class UserController {
     @GetMapping("/GetDonationsRecords/{username}")
     public List<DonationRecordEntry> getDonationsRecordsOf(@PathVariable String username) {return userDonationService.getDonationRecordsOf(username);}
 
+    @GetMapping("/IsRegistred/{userEmail}")
+    public User isUserRegister(@PathVariable String userEmail) {return userDonationService.isUserRegister(userEmail);}
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {
