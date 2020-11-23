@@ -27,14 +27,17 @@ public class DataLoader implements ApplicationRunner {
     private LocalityRepository localityRepository;
     @Autowired
     private ProjectRepository projectRepository;
-
+    private String hashPassword = new Encoder().encoder("1234");
     public DataLoader(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
+    private User normalUser = new User("usuarioUno", "gonzaloguasch98@gmail.com", this.hashPassword, "nickname");
+    private UserAdmin adminUser = new UserAdmin("usuarioAdmin", "gonzaloguasch@outlook.com",  hashPassword, "el+kpo");
+
     public void run(ApplicationArguments args) {
-        User user = new User("usuarioUno", "gonzaloguasch98@gmail.com", "1234", "nickname");
-        userAdminRepository.save(new UserAdmin("usuarioAdmin", "gonzaloguasch@outlook.com", "1234", "el+kpo"));
+        User user = normalUser;
+        userAdminRepository.save(this.adminUser);
         Locality localidadUno = new Locality("localidad uno", "tucuman", 100, false);
         Locality localidadDos = new Locality("localidad dos", "chaco", 3200, true);
         Locality localidadTres = new Locality("localidad tres", "san juan", 800, false);
