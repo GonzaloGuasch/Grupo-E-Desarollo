@@ -71,10 +71,10 @@ public class User {
         return this.getDonationRegistry().amountOfRecords();
     }
 
-    public Long getId(){ return id;}
+    public Long getid(){ return id;}
     public String getUserName(){return userName;}
     public String getEmail(){return email;}
-    public String password(){return password;}
+    public String getPassword(){return password;}
     public String getNickName(){return nickName;}
     public Integer getAmountOfPoints() { return amountOfPoints; }
     public DonationRegistry getDonationRegistry() { return donationRegistry; }

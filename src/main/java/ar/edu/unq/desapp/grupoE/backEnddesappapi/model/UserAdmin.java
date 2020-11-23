@@ -28,5 +28,5 @@ public class UserAdmin extends User {
     public Integer getNumberOfProjectsClosed() {
         return this.numberOfProjectsClosed;
     }
-    public Long getId(){ return id;}
+    public Long getid(){ return id;}
 }

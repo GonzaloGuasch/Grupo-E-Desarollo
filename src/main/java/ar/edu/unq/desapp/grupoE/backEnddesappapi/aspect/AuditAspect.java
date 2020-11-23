@@ -13,9 +13,9 @@ import java.sql.Timestamp;
 
 @Aspect
 @Component
-public class LogExecutionTimeAspectAnnotation {
+public class AuditAspect {
     private long start;
-    static Logger logger = LoggerFactory.getLogger(LogExecutionTimeAspectAnnotation.class);
+    static Logger logger = LoggerFactory.getLogger(AuditAspect.class);
     private Object[] args;
     private Signature tipoRetornoYNombreMetodo;
 
