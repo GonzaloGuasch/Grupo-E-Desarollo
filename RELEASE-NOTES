@@ -20,4 +20,16 @@ NOTES
 * Api documentation with Swagger.
 * I18n US-ES
 
+---------------------------------------------------------------------
+TAG 3.0.0
+---------------------------------------------------------------------
+NEW FEATURES
+* Add validations in backend and frontend.
+* The sending of emails to users was implemented.
+* Architecture test implementation.
+* Implementation of logger events.
+
+
+NOTES
+* Authentication with auth0
 
