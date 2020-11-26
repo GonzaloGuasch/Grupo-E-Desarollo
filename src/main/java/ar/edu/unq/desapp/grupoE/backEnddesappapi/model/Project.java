@@ -135,7 +135,7 @@ public class Project {
     }
 
     private boolean itIsNotFinalizableProject(LocalDate finishDate) {
-        return this.isFinished || finishDate.isBefore(this.endDate) || this.getAmountCollected() < this.calculateMoneyBasedOnfactor();
+        return (this.isFinished || finishDate.isBefore(this.endDate)) && this.getAmountCollected() < this.calculateMoneyBasedOnfactor();
     }
 
 

@@ -44,4 +44,12 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
                     "OFFSET :page_number",
             nativeQuery = true)
     List<Project> getPageProjects(@Param("page_number") Integer page_number);
+
+    @Modifying(clearAutomatically = true)
+    @Query( value=  "SELECT * " +
+                    "FROM project " +
+                    "WHERE project.project_name " +
+                    "LIKE %:projectString%",
+            nativeQuery = true)
+    List<Project> getProjectsThatMatches(@Param("projectString") String projectString);
 }
