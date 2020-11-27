@@ -66,7 +66,7 @@ public class DataLoader implements ApplicationRunner {
         LocalDate endDateEight = LocalDate.now().plusMonths(1);
 
         Project projectSeven = new Project("ataca salta", 90, LocalDate.now().plusDays(30), endDateSeven, 10, localidadSiete);
-        user.donateFor(projectSeven, 20000);
+        user.donateFor(projectSeven, 20000, "Donacion inicial");
         userRepository.save(user);
         projectRepository.save(new Project("tucuman conecta2", 90, LocalDate.now().plusDays(1), endDateOne, 7600, localidadUno));
         projectRepository.save(new Project("trato chacho", 10, LocalDate.now().plusDays(20), endDateTwo, 1000, localidadDos));

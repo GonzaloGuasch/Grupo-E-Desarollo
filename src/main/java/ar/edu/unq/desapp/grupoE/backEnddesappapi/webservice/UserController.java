@@ -2,6 +2,7 @@ package ar.edu.unq.desapp.grupoE.backEnddesappapi.webservice;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.DonationRecordEntry;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.User;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.UserAdmin;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.UserCreateWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.UserLoginWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.service.UserDonationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class UserController {
     public Integer getPoints(@PathVariable String userName){ return userDonationService.amountOfPointsFor(userName);}
 
     @PostMapping("/create")
-    public User create(@Valid @RequestBody User user){ return userDonationService.createUser(user);}
+    public User create(@Valid @RequestBody UserCreateWrapper user){ return userDonationService.createUser(user);}
 
     @PostMapping("/logIn")
     public User logIn(@RequestBody UserLoginWrapper userLoginWrapper){ return userDonationService.tryLogIn(userLoginWrapper);}

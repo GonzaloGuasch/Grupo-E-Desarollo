@@ -51,7 +51,7 @@ public class ProjectService {
         Project projectToDonate = this.projectRepository.findByprojectName(newDonation.getProjectName());
         User userWhoDonated = this.userRepository.findByuserName(newDonation.getUsername());
 
-        userWhoDonated.donateFor(projectToDonate, newDonation.getAmountDonated());
+        userWhoDonated.donateFor(projectToDonate, newDonation.getAmountDonated(), newDonation.getComment());
         this.projectRepository.save(projectToDonate);
         this.userRepository.save(userWhoDonated);
         return projectToDonate.getAmountCollected();
@@ -112,5 +112,9 @@ public class ProjectService {
 
     public List<Project> getProjectsThatMatches(String projectString) {
         return this.projectRepository.getProjectsThatMatches(projectString);
+    }
+
+    public List<String> getCommentsOf(String project_name) {
+        return this.projectRepository.getCommentsOf(project_name);
     }
 }

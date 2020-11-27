@@ -47,6 +47,8 @@ public class ProjectController {
     public Integer makeNewDonation(@Valid @RequestBody NewDonationWrapper newDonation) {
         return this.projectService.makeDonation(newDonation);
     }
+    @GetMapping("getComments/{project_name}")
+    public List<String> getCommentsOf(@PathVariable String project_name){return this.projectService.getCommentsOf(project_name);}
 
     @GetMapping("/getProjectsNearEndDate/")
     public List<Project> getProjectsNearEndDate() {return this.projectService.getProjectsNearEndDate();}

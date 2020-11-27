@@ -4,6 +4,7 @@ import ar.edu.unq.desapp.grupoE.backEnddesappapi.Encoder;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.DonationRecordEntry;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.User;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.UserAdmin;
+import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.UserCreateWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.model.wrappers.UserLoginWrapper;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.repository.DonationRecordEntryRepository;
 import ar.edu.unq.desapp.grupoE.backEnddesappapi.repository.UserAdminRepository;
@@ -36,7 +37,7 @@ public class UserDonationService {
 
     public List<User> getAllNormalUsers() { return this.userRepository.findAll(); }
 
-    public User createUser(User user) {
+    public User createUser(UserCreateWrapper user) {
         String hashPassword = this.encoder.encoder(user.getPassword());
         User userToSave = new User(user.getUserName(),user.getEmail(), hashPassword, user.getNickName());
         return this.userRepository.save(userToSave);

@@ -25,6 +25,8 @@ public class DonationRecordEntry {
     @Min(value = 2, message = "Minimum amount is 2")
     private Integer donatedAmount;
 
+    @Column
+    private String comment;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="donation_record_entry_id")
@@ -32,11 +34,11 @@ public class DonationRecordEntry {
 
     public DonationRecordEntry(){ }
 
-
-    public DonationRecordEntry(String projectName, LocalDate donationDate, Integer amountDonated) {
+    public DonationRecordEntry(String projectName, LocalDate donationDate, Integer amountDonated, String comment) {
         this.projectName = projectName;
         this.donationDate = donationDate;
         this.donatedAmount = amountDonated;
+        this.comment = comment;
     }
 
     public Boolean itsMonth(Month monthOfDonation) {
@@ -45,4 +47,7 @@ public class DonationRecordEntry {
     public Integer getDonatedAmount(){ return donatedAmount; }
     public String getprojectName(){ return projectName; }
     public Long getId(){ return id; }
+    public String getProjectName() { return projectName; }
+    public LocalDate getDonationDate() { return donationDate; }
+    public String getComment() { return comment; }
 }

@@ -52,4 +52,11 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
                     "LIKE %:projectString%",
             nativeQuery = true)
     List<Project> getProjectsThatMatches(@Param("projectString") String projectString);
+
+    @Modifying(clearAutomatically = true)
+    @Query( value=  "SELECT comment " +
+                    "FROM donation_record_entry " +
+                    "WHERE donation_record_entry.project_name = :projectName",
+            nativeQuery = true)
+    List<String> getCommentsOf(@Param("projectName") String projectName);
 }

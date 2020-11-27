@@ -26,36 +26,36 @@ class UserTest {
 	}
 	@Test
 	void test001AnUserRecivesCeroPointsIfheDonatesLessThan1000() {
-		userDonador.donateFor(proyectoDeDeDosMilHabitantes, 800);
+		userDonador.donateFor(proyectoDeDeDosMilHabitantes, 800, "Donacion test");
 
 		assertEquals(userDonador.getAmountOfPoints(), 0);
 	}
 
 	@Test
 	void test002IfTheUserDonatesMoreThan1000HeOrSheRecivesTheSameAmountOfPoints() {
-		userDonador.donateFor(proyectoDeDeDosMilHabitantes, 1001);
+		userDonador.donateFor(proyectoDeDeDosMilHabitantes, 1001, "Donacion test");
 
 		assertEquals(userDonador.getAmountOfPoints(), 1001);
 	}
 
 	@Test
 	void test003IfIsTheSecondDonationOfTheMonthHeOrSheReceiveAn500Bonus() {
-		userDonador.donateFor(proyectoDeDeDosMilHabitantes, 1);
-		userDonador.donateFor(proyectoDeDeDosMilHabitantes, 1);
+		userDonador.donateFor(proyectoDeDeDosMilHabitantes, 1, "Donacion test");
+		userDonador.donateFor(proyectoDeDeDosMilHabitantes, 1, "Donacion test");
 
 		assertEquals(500, userDonador.getAmountOfPoints());
 	}
 
 	@Test
 	void test004EveryUserHasAllDonationsRegistrated() {
-		userDonador.donateFor(proyectoDeDeDosMilHabitantes, 1);
+		userDonador.donateFor(proyectoDeDeDosMilHabitantes, 1, "Donacion test");
 
 		assertEquals(1, userDonador.amountOfHistoricalDonations());
 	}
 
 	@Test
 	void test005IfTheLocalityHasLessThan2000WhenYouDonateItGiveYouDoublePoints() {
-		userDonador.donateFor(proyectoDeMenosDeDosMilHabitantes, 1000);
+		userDonador.donateFor(proyectoDeMenosDeDosMilHabitantes, 1000, "Donacion test");
 
 		assertEquals(userDonador.getAmountOfPoints(), 2000);
 	}
