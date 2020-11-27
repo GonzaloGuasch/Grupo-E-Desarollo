@@ -22,7 +22,7 @@ public class DonationRecordEntry {
 
     @Column
     @NotNull(message = "Donation Amount is required")
-    @Min(value = 2, message = "Minimum amount is 2")
+    @Min(value = 1, message = "Minimum amount is 1")
     private Integer donatedAmount;
 
     @Column
