@@ -77,6 +77,8 @@ public class Project {
         this.porcentageMin = 100;
         this.factor = 1000;
     }
+
+    public Boolean getFinished() { return isFinished; }
     public Long getId(){return id;}
     public String getProjectName() { return projectName; }
     public Integer getFactor() { return factor; }
@@ -135,7 +137,7 @@ public class Project {
     }
 
     private boolean itIsNotFinalizableProject(LocalDate finishDate) {
-        return (this.isFinished || finishDate.isBefore(this.endDate)) && this.getAmountCollected() < this.calculateMoneyBasedOnfactor();
+        return (this.isFinished || finishDate.isBefore(this.endDate)) || this.getAmountCollected() < this.calculateMoneyBasedOnfactor();
     }
 
 
