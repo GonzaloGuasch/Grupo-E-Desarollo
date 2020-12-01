@@ -13,7 +13,7 @@ public class DonationRecordEntry {
 
     @Column
     @NotBlank(message = "Project Name is required")
-    private String projectName;
+    private String projectDonatedName;
 
     @Column
     @JsonFormat(pattern = "dd-MM-yyyy")
@@ -22,9 +22,11 @@ public class DonationRecordEntry {
 
     @Column
     @NotNull(message = "Donation Amount is required")
-    @Min(value = 2, message = "Minimum amount is 2")
+    @Min(value = 1, message = "Minimum amount is 1")
     private Integer donatedAmount;
 
+    @Column
+    private String comment;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="donation_record_entry_id")
@@ -32,17 +34,20 @@ public class DonationRecordEntry {
 
     public DonationRecordEntry(){ }
 
-
-    public DonationRecordEntry(String projectName, LocalDate donationDate, Integer amountDonated) {
-        this.projectName = projectName;
+    public DonationRecordEntry(String projectDonatedName, LocalDate donationDate, Integer amountDonated, String comment) {
+        this.projectDonatedName = projectDonatedName;
         this.donationDate = donationDate;
         this.donatedAmount = amountDonated;
+        this.comment = comment;
     }
 
     public Boolean itsMonth(Month monthOfDonation) {
         return this.donationDate.getMonth() == monthOfDonation;
     }
     public Integer getDonatedAmount(){ return donatedAmount; }
-    public String getprojectName(){ return projectName; }
+    public String getprojectName(){ return projectDonatedName; }
     public Long getId(){ return id; }
+    public String getProjectDonatedName() { return projectDonatedName; }
+    public LocalDate getDonationDate() { return donationDate; }
+    public String getComment() { return comment; }
 }

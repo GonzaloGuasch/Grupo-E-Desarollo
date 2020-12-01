@@ -29,8 +29,8 @@ public class DonationRegistry {
 
         return bonusAmount;
     }
-    public void registerNewDonation(String projectNameToDonate, Integer amountMoneyToDonate) {
-        DonationRecordEntry newDonation = new DonationRecordEntry(projectNameToDonate, LocalDate.now(), amountMoneyToDonate);
+    public void registerNewDonation(String projectNameToDonate, Integer amountMoneyToDonate, String comment) {
+        DonationRecordEntry newDonation = new DonationRecordEntry(projectNameToDonate, LocalDate.now(), amountMoneyToDonate, comment);
         this.donationsRegistryRecord.add(newDonation);
     }
 

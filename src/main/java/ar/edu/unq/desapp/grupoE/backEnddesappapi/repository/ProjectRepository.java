@@ -33,7 +33,7 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
                     "JOIN donation_record_entry as dr " +
                     "ON dr.donation_record_entry_id = rr.donations_registry_record_donation_record_entry_id " +
                     "JOIN project as p " +
-                    "ON p.project_name = dr.project_name; ",
+                    "ON p.project_name = dr.project_donated_name; ",
             nativeQuery = true)
     List<String> getAllMailsOfDonors();
 
@@ -44,4 +44,21 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
                     "OFFSET :page_number",
             nativeQuery = true)
     List<Project> getPageProjects(@Param("page_number") Integer page_number);
+
+    @Modifying(clearAutomatically = true)
+    @Query( value=  "SELECT * " +
+                    "FROM project " +
+                    "WHERE project.project_name " +
+                    "LIKE %:projectString%",
+            nativeQuery = true)
+    List<Project> getProjectsThatMatches(@Param("projectString") String projectString);
+
+    @Modifying(clearAutomatically = true)
+    @Query( value=  "SELECT comment " +
+                    "FROM donation_record_entry " +
+                    "WHERE donation_record_entry.project_donated_name = :projectName",
+            nativeQuery = true)
+    List<String> getCommentsOf(@Param("projectName") String projectName);
+
+    Project findByProjectName(String projectName);
 }

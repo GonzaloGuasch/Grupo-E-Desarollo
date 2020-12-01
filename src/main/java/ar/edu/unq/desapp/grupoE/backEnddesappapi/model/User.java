@@ -52,12 +52,12 @@ public class User {
         this.donationRegistry = new DonationRegistry();
     }
 
-    public void donateFor(Project projectToDonate, int amountOfMoneyToDonate) {
+    public void donateFor(Project projectToDonate, int amountOfMoneyToDonate, String comment) {
         Integer  pointsForDonation = projectToDonate.givePointsForDonation(amountOfMoneyToDonate);
         Integer pointsForBonus = this.getDonationRegistry().giveBonusIfItIsTheSecondDonationOfTheMonth(LocalDate.now().getMonth());
 
         projectToDonate.receiveDonation(amountOfMoneyToDonate);
-        this.getDonationRegistry().registerNewDonation(projectToDonate.getProjectName(), amountOfMoneyToDonate);
+        this.getDonationRegistry().registerNewDonation(projectToDonate.getProjectName(), amountOfMoneyToDonate, comment);
 
 
         this.scorePoints(pointsForDonation + pointsForBonus);
@@ -81,5 +81,9 @@ public class User {
 
     public List<DonationRecordEntry> getAllDonationsRecords() {
         return this.donationRegistry.getAllRecords();
+    }
+
+    public Boolean isAdmin() {
+        return false;
     }
 }
