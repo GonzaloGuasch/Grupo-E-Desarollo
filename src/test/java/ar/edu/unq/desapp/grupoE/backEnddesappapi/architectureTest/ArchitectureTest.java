@@ -12,7 +12,7 @@ public class ArchitectureTest {
 
     @ArchTest
     public static final ArchRule class_and_package_contaiment_checks = classes()
-            .that().haveSimpleNameStartingWith("LocalityService")
+            .that().haveSimpleNameStartingWith("Service")
             .should().resideInAPackage("ar.edu.unq.desapp.grupoE.backEnddesappapi.service");
 
 
@@ -25,5 +25,15 @@ public class ArchitectureTest {
     public static final ArchRule services_should_not_access_controllers =
             noClasses().that().resideInAPackage("..ar.edu.unq.desapp.grupoE.backEnddesappapi.service")
                     .should().accessClassesThat().resideInAPackage("..ar.edu.desapp.grupoE.backEnddesappapi.webservice");
+
+    @ArchTest
+    public static final ArchRule repository_only_accesed_by_service = classes()
+            .that().resideInAPackage("..repository..")
+                    .should().onlyBeAccessed().byAnyPackage("..service","..repository..");
+
+    @ArchTest
+    public static final ArchRule should_package_model_independent_of_other_packages = noClasses()
+            .that().resideInAPackage("..model..")
+            .should().dependOnClassesThat().resideInAnyPackage("..repository..","..service..");
 
 }
