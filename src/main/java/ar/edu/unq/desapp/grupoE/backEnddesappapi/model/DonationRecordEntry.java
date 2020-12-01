@@ -13,7 +13,7 @@ public class DonationRecordEntry {
 
     @Column
     @NotBlank(message = "Project Name is required")
-    private String projectName;
+    private String projectDonatedName;
 
     @Column
     @JsonFormat(pattern = "dd-MM-yyyy")
@@ -34,8 +34,8 @@ public class DonationRecordEntry {
 
     public DonationRecordEntry(){ }
 
-    public DonationRecordEntry(String projectName, LocalDate donationDate, Integer amountDonated, String comment) {
-        this.projectName = projectName;
+    public DonationRecordEntry(String projectDonatedName, LocalDate donationDate, Integer amountDonated, String comment) {
+        this.projectDonatedName = projectDonatedName;
         this.donationDate = donationDate;
         this.donatedAmount = amountDonated;
         this.comment = comment;
@@ -45,9 +45,9 @@ public class DonationRecordEntry {
         return this.donationDate.getMonth() == monthOfDonation;
     }
     public Integer getDonatedAmount(){ return donatedAmount; }
-    public String getprojectName(){ return projectName; }
+    public String getprojectName(){ return projectDonatedName; }
     public Long getId(){ return id; }
-    public String getProjectName() { return projectName; }
+    public String getProjectDonatedName() { return projectDonatedName; }
     public LocalDate getDonationDate() { return donationDate; }
     public String getComment() { return comment; }
 }

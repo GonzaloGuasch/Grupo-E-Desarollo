@@ -34,10 +34,10 @@ public class UserController {
     public Integer getPoints(@PathVariable String userName){ return userDonationService.amountOfPointsFor(userName);}
 
     @PostMapping("/create")
-    public User create(@Valid @RequestBody UserCreateWrapper user){ return userDonationService.createUser(user);}
+    public String create(@Valid @RequestBody UserCreateWrapper user){ return userDonationService.createUser(user);}
 
     @PostMapping("/logIn")
-    public User logIn(@RequestBody UserLoginWrapper userLoginWrapper){ return userDonationService.tryLogIn(userLoginWrapper);}
+    public String logIn(@RequestBody UserLoginWrapper userLoginWrapper){ return userDonationService.tryLogIn(userLoginWrapper);}
 
     @DeleteMapping("/delete/{name}")
     public List deleteByName(@PathVariable String name){return userDonationService.deleteUserByName(name);}
@@ -47,6 +47,9 @@ public class UserController {
 
     @GetMapping("/IsRegistred/{userEmail}")
     public User isUserRegister(@PathVariable String userEmail) {return userDonationService.isUserRegister(userEmail);}
+
+    @GetMapping("isAdmin/{username}")
+    public Boolean isUserAdmin(@PathVariable String username){return this.userDonationService.isUserAdmin(username);}
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)

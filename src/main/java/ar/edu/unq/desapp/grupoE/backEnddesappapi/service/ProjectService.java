@@ -117,4 +117,8 @@ public class ProjectService {
     public List<String> getCommentsOf(String project_name) {
         return this.projectRepository.getCommentsOf(project_name);
     }
+
+    public Project getProjetsByName(String projectName) {
+        return this.projectRepository.findByProjectName(projectName);
+    }
 }

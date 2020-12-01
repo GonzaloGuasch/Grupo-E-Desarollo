@@ -82,4 +82,8 @@ public class User {
     public List<DonationRecordEntry> getAllDonationsRecords() {
         return this.donationRegistry.getAllRecords();
     }
+
+    public Boolean isAdmin() {
+        return false;
+    }
 }

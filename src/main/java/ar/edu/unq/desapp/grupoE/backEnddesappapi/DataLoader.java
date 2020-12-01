@@ -32,8 +32,8 @@ public class DataLoader implements ApplicationRunner {
         this.userRepository = userRepository;
     }
 
-    private User normalUser = new User("usuarioUno", "gonzaloguasch98@gmail.com", this.hashPassword, "nickname");
-    private UserAdmin adminUser = new UserAdmin("usuarioAdmin", "gonzaloguasch@outlook.com",  hashPassword, "el+kpo");
+    private User normalUser = new User("usuarioUno", "gonzaloguasch98@gmail.com", "1234", "nickname");
+    private UserAdmin adminUser = new UserAdmin("usuarioAdmin", "gonzaloguasch@outlook.com",  "1234", "el+kpo");
 
     public void run(ApplicationArguments args) {
         User user = normalUser;

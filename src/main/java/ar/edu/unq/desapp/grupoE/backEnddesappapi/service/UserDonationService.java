@@ -37,10 +37,10 @@ public class UserDonationService {
 
     public List<User> getAllNormalUsers() { return this.userRepository.findAll(); }
 
-    public User createUser(UserCreateWrapper user) {
-        String hashPassword = this.encoder.encoder(user.getPassword());
-        User userToSave = new User(user.getUserName(),user.getEmail(), hashPassword, user.getNickName());
-        return this.userRepository.save(userToSave);
+    public String createUser(UserCreateWrapper user) {
+        User userToSave = new User(user.getUserName(),user.getEmail(), user.getPassword(), user.getNickName());
+        this.userRepository.save(userToSave);
+        return user.getUserName();
     }
 
     public List deleteUserByName(String name) {
@@ -66,15 +66,20 @@ public class UserDonationService {
     public List<UserAdmin> getAllAdmins() {
         return this.userAdminRepository.findAll(); }
 
-    public User tryLogIn(UserLoginWrapper userLoginWrapper) {
+    public String tryLogIn(UserLoginWrapper userLoginWrapper) {
         User user = this.userRepository.findByuserName(userLoginWrapper.getusername());
-        if(this.encoder.decode(userLoginWrapper.getPassword(), user)){
-            return user;
+        if(userLoginWrapper.getPassword().equals(user.getPassword())) {
+            return user.getUserName();
         }
         return null;
     }
 
     public User isUserRegister(String userEmail) {
         return this.userRepository.findByemail(userEmail);
+    }
+
+    public Boolean isUserAdmin(String username) {
+        User user = this.userRepository.findByuserName(username);
+        return user.isAdmin();
     }
 }

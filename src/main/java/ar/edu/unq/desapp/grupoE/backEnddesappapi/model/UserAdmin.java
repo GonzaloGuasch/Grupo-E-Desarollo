@@ -29,4 +29,9 @@ public class UserAdmin extends User {
         return this.numberOfProjectsClosed;
     }
     public Long getid(){ return id;}
+
+    @Override
+    public Boolean isAdmin() {
+        return true;
+    }
 }
